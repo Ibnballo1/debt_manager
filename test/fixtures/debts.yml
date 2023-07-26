@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  debtor: MyString
+  due_date: 2023-07-26
+  amount: 9.99
+  is_paid: false
+
+two:
+  user: two
+  debtor: MyString
+  due_date: 2023-07-26
+  amount: 9.99
+  is_paid: false
