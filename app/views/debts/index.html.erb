@@ -4,6 +4,6 @@
 <p>All Debts for <strong><%=@user.username.upcase%></strong></p>
 <ul>
   <%@debts.each do |debt|%>
-    <li><%=debt.debtor%></li>
+    <li><%=link_to debt.debtor, user_debt_path(user_id: debt.user_id, id: debt.id) %></li>
   <%end%>
 </ul>
