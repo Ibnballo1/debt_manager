@@ -1,0 +1,9 @@
+<h1>Show page</h1>
+
+<%@user.debtors.each do |debts| %>
+  <p>
+    <% if @user.id == debts.user_id%>
+      <%=debts.debtor%>
+    <%end%>
+  </p>
+<%end%>
