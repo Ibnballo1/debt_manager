@@ -1,0 +1,7 @@
+<h1>Show Debt</h1>
+
+<p>
+  <%if @user.id == @debt.user_id%>
+    <%=@debt.amount%>
+  <%end%>
+</p>
