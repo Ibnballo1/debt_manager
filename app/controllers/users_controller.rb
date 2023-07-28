@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show]
+  # before_action :set_user, only: [:show]
   def index
     @users = User.all
   end
@@ -10,7 +10,6 @@ class UsersController < ApplicationController
 
   # method to show new user
   def show
-    @user
   end
 
   # edit user
@@ -25,8 +24,8 @@ class UsersController < ApplicationController
   def delete
   end
 
-  private
-  def set_user
-    @user = User.find(params[:id])
-  end
+  # private
+  # def set_user
+  #   @user = User.find(params[:id])
+  # end
 end
