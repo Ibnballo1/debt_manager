@@ -1,7 +1,11 @@
-<h1>Show Debt</h1>
+<h3><%=@debt.debtor%> Debt Details </h3>
 
-<p>
+<section>
   <%if @user.id == @debt.user_id%>
-    <%=@debt.amount%>
+    <div>
+      <p><%=@debt.amount%></p>
+      <p><%=@debt.due_date%></p>
+      <p><%=@debt.is_paid%></p>
+    </div>
   <%end%>
-</p>
+</section>
