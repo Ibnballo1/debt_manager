@@ -1,2 +1,9 @@
 <h1>Debts#index</h1>
-<p>Find me in app/views/debts/index.html.erb</p>
+
+<p>User is <strong><%=@user.username.upcase%></strong> and his id is <%=@user.id%></p>
+<p>All Debts for <strong><%=@user.username.upcase%></strong></p>
+<ul>
+  <%@debts.each do |debt|%>
+    <li><%=debt.debtor%></li>
+  <%end%>
+</ul>
