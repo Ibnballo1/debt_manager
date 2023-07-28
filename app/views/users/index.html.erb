@@ -1,0 +1,10 @@
+<h1>Users Index</h1>
+
+<% @users.each do |user|%>
+  <h2><%=user.username%></h2>
+  <%user.debtors.each do |debts| %>
+    <p>
+      <%=debts.debtor%>
+    </p>
+  <%end%>
+<%end%>
