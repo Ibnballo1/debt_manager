@@ -7,3 +7,7 @@
     <li><%=link_to debt.debtor, user_debt_path(user_id: debt.user_id, id: debt.id) %></li>
   <%end%>
 </ul>
+
+<button>
+  <%=link_to 'Add Debt', new_user_debt_path(user_id: @user.id)%>
+</button>
