@@ -2,10 +2,15 @@
 
 <section>
   <%if @user.id == @debt.user_id%>
-    <div>
+    <article>
+      <h4>Amount</h4>
+      <h4>Due Date</h4>
+      <h4>Paid</h4>
+    </article>
+    <article>
       <p><%=@debt.amount%></p>
       <p><%=@debt.due_date%></p>
       <p><%=@debt.is_paid%></p>
-    </div>
+    </article>
   <%end%>
 </section>
