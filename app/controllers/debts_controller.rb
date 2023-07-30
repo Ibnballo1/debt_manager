@@ -21,10 +21,8 @@ class DebtsController < ApplicationController
     @debt = Debt.new(debt_params)
   
     if @debt.save
-      puts "In the create @debt is #{@debt}"
       redirect_to user_debts_path(user_id: @debt.user_id), notice: "Debt was successfully created."
     else
-      puts "new debt not created"
       render :new
     end
   end
