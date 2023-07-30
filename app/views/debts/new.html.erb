@@ -1,0 +1,10 @@
+<h2>Add New Debt</h2>
+<%= form_with model: @debt, url: user_debts_path(user_id: @user.id) do |form| %>
+  <%= form.label :debtor %>
+  <%= form.text_field :debtor %>
+  <%= form.label :due_date %>
+  <%= form.date_field :due_date %>
+  <%= form.label :amount %>
+  <%= form.number_field :amount %>
+  <%= form.submit 'Add Debt' %>
+<%end%>
