@@ -1,6 +1,6 @@
 class DebtsController < ApplicationController
-  before_action :set_user, only: [:index, :show, :new, :create]
-  before_action :set_debt, only: [:show]
+  before_action :set_user, only: [:index, :show, :new, :create, :edit, :update]
+  before_action :set_debt, only: [:show, :edit, :update]
 
   def index
     @debts = @user.debts
@@ -29,10 +29,16 @@ class DebtsController < ApplicationController
 
   # edit debt
   def edit
+    @debt
   end
 
   # Update user
   def update
+    if @debt.update(debt_params)
+      redirect_to user_debts_path(user_id: @debt.user_id), notice: "Debt was successfully created."
+    else
+      render :edit
+    end
   end
 
   # Destroy user
