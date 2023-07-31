@@ -14,3 +14,6 @@
     </article>
   <%end%>
 </section>
+<button>
+  <%=link_to "Edit #{@debt.debtor}'s Debt", edit_user_debt_path(user_id: @user.id, id: @debt.id) %>
+</button>
