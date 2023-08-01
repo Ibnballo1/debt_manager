@@ -1,6 +1,6 @@
 class DebtsController < ApplicationController
-  before_action :set_user, only: [:index, :show, :new, :create, :edit, :update]
-  before_action :set_debt, only: [:show, :edit, :update]
+  before_action :set_user, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  before_action :set_debt, only: [:show, :edit, :update, :destroy]
 
   def index
     @debts = @user.debts
@@ -42,7 +42,9 @@ class DebtsController < ApplicationController
   end
 
   # Destroy user
-  def delete
+  def destroy
+    @debt.destroy
+    redirect_to user_debts_path
   end
 
   private
