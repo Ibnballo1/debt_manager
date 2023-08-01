@@ -3,5 +3,6 @@
   <%= form.text_field :debtor %>
   <%= form.date_field :due_date %>
   <%= form.number_field :amount %>
+  <%= form.check_box :is_paid, skip_label: true %>
   <%= form.submit 'Edit Debt' %>
 <%end%>

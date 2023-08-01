@@ -10,7 +10,12 @@
     <article>
       <p><%=@debt.amount%></p>
       <p><%=@debt.due_date%></p>
-      <p><%=@debt.is_paid%></p>
+      <%if @debt.is_paid %>
+        <p>Status: Paid</p>
+      <%else %>
+        <p>Status: Unpaid</p>
+      <%end%>
+      
     </article>
   <%end%>
 </section>
