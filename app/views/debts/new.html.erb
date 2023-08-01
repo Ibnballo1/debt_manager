@@ -1,0 +1,8 @@
+<h2>Add New Debt</h2>
+<%= bootstrap_form_with model: @debt, url: user_debts_path(user_id: @user.id) do |form| %>
+  <%= form.text_field :debtor %>
+  <%= form.date_field :due_date %>
+  <%= form.number_field :amount %>
+  <%= form.check_box :is_paid, skip_label: true %>
+  <%= form.submit 'Add Debt' %>
+<%end%>

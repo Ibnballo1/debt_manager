@@ -1,2 +1,17 @@
 <h1>Debts#index</h1>
-<p>Find me in app/views/debts/index.html.erb</p>
+
+<p>User is <strong><%=@user.username.upcase%></strong> and his id is <%=@user.id%></p>
+<p>All Debts for <strong><%=@user.username.upcase%></strong></p>
+<ul>
+  <%@debts.each do |debt|%>
+    <li><%=link_to debt.debtor, user_debt_path(user_id: debt.user_id, id: debt.id) %></li>
+    <%= form_with(model: debt, url: user_debt_path(user_id: debt.user_id, id: debt.id),
+    method: :delete, data: { confirm: 'Are you sure you want to delete this debt?' }) do |form| %>
+      <%= form.button 'Delete Debt', class: 'btn btn-danger' %>
+    <% end %>
+  <%end%>
+</ul>
+
+<button>
+  <%=link_to 'Add Debt', new_user_debt_path(user_id: @user.id)%>
+</button>
