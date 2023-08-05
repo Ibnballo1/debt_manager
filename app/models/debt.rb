@@ -1,5 +1,5 @@
 class Debt < ApplicationRecord
-  belongs_to :user
+  belongs_to :debtor
 
   validates :debtor, presence: true, length: { minimum: 3, maximum: 100 }
   validates :due_date, presence: true
