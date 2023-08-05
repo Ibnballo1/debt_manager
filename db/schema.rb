@@ -10,20 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_28_094414) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_05_140042) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "adminpack"
   enable_extension "plpgsql"
 
-  create_table "debts", force: :cascade do |t|
+  create_table "debtors", force: :cascade do |t|
+    t.string "name"
     t.bigint "user_id", null: false
-    t.string "debtor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_debtors_on_user_id"
+  end
+
+  create_table "debts", force: :cascade do |t|
     t.date "due_date"
     t.decimal "amount"
     t.boolean "is_paid", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_debts_on_user_id"
+    t.bigint "debtor_id", null: false
+    t.string "reason"
+    t.index ["debtor_id"], name: "index_debts_on_debtor_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -34,5 +41,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_094414) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "debts", "users"
+  add_foreign_key "debtors", "users"
+  add_foreign_key "debts", "debtors"
 end
