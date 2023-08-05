@@ -6,16 +6,16 @@ default: &default
 development:
   <<: *default
   database: debt_manager_development
-  username: postgres
-  password: '@Ajibaye1'
+  username: <%= ENV["DEBT_MANAGER_DATABASE_USERNAME"] %>
+  password: "<%= ENV["DEBT_MANAGER_DATABASE_PASSWORD"] %>"
 
 test:
   <<: *default
   database: debt_manager_test
-  username: postgres
-  password: '@Ajibaye1'
+  username: <%= ENV["DEBT_MANAGER_DATABASE_USERNAME"] %>
+  password: "<%= ENV["DEBT_MANAGER_DATABASE_PASSWORD"] %>"
 
 production:
   <<: *default
   database: debt_manager_production
-  password: <%= ENV["DEBT_MANAGER_DATABASE_PASSWORD"] %>
+  password: "<%= ENV["DEBT_MANAGER_DATABASE_PASSWORD"] %>"
