@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
+  get 'debtors/index'
+  get 'debtors/show'
+  get 'debtors/new'
+  get 'debtors/create'
+  get 'debtors/edit'
+  get 'debtors/update'
+  get 'debtors/destroy'
   resources :users
   resources :debtors do
     resources :debts
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
   root 'users#index'
 end
