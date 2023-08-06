@@ -1,9 +1,9 @@
 class DebtsController < ApplicationController
-  before_action :set_user, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  before_action :set_debtor, only: [:index]
   before_action :set_debt, only: [:show, :edit, :update, :destroy]
 
   def index
-    @debts = @user.debts
+    @debts = @debtor.debts
   end
 
   # method to create new user
@@ -48,8 +48,8 @@ class DebtsController < ApplicationController
   end
 
   private
-  def set_user
-    @user = User.find(params[:user_id])
+  def set_debtor
+    @debtor = Debtor.find(params[:debtor_id])
   end
 
   def set_debt
