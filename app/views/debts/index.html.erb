@@ -14,9 +14,14 @@
         <p>Status: Unpaid</p>
       <%end%>
     </li>
+    <li>
+      <button>
+        <%=link_to "Edit #{@debtor.name}'s Debt", edit_user_debtor_debt_path(user_id: @debtor.user_id, debtor_id: @debtor.id, id: debt.id) %>
+      </button>
+    </li>
   <%end%>
 </ul>
 
 <button>
-  <%# <%=link_to 'Add Debt', new_user_debt_path(user_id: @user.id)%>
+  <%=link_to 'Add Debt', new_user_debtor_debt_path(user_id: @debtor.user_id, debtor_id: @debt.id) %>
 </button>

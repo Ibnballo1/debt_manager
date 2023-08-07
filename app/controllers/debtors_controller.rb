@@ -1,6 +1,6 @@
 class DebtorsController < ApplicationController
   before_action :set_user, only: [:index]
-  # before_action :set_debtor, only: [:show, :edit, :update, :destroy]
+  before_action :set_debtor, only: [:show, :edit, :update, :destroy]
 
   def index
     @debtors = @user.debtors
@@ -27,5 +27,9 @@ class DebtorsController < ApplicationController
   # private
   def set_user
     @user = User.find(params[:user_id])
+  end
+
+  def set_debtor
+    @debtor = Debtor.find(params[:id])
   end
 end
