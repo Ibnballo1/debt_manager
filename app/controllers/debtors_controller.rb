@@ -30,6 +30,8 @@ class DebtorsController < ApplicationController
   end
 
   def destroy
+    @debtor.destroy
+    redirect_to user_debtors_path
   end
 
   # private
