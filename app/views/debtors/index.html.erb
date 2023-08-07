@@ -8,3 +8,7 @@
     <%= form.button 'Delete Debt', class: 'btn btn-danger' %>
   <% end %>
 <%end%>
+
+<button>
+  <%=link_to 'Add Debtor', new_user_debtor_path(user_id: @user.id)%>
+</button>

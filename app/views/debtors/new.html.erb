@@ -1,2 +1,8 @@
 <h1>Debtors#new</h1>
 <p>Find me in app/views/debtors/new.html.erb</p>
+
+<%= bootstrap_form_with model: @debtor, url: user_debtors_path(user_id: @user.id) do |form| %>
+  <%# <%= render 'form', form: form %>
+  <%=form.text_field :name %>
+  <%= form.submit 'Add Debt' %>
+<%end%>
