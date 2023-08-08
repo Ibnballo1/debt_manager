@@ -1,5 +1,13 @@
-<h1>Users Index</h1>
+<header>
+  <h1>Welcome to Debt Manager</h1>
+</header>
 
-<% @users.each do |user|%>
-  <h2><%=user.username%></h2>
-<%end%>
+<section>
+  <p>You can manage your debts with ease.</p>
+  <p>Stay organized and keep track of your financial obligations.</p>
+</section>
+
+<footer>
+  <p>Start managing your debts today!</p>
+  <button><%=link_to 'Manage Debt', debts_path() %></button>
+</footer>
