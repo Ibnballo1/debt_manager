@@ -1,5 +1,5 @@
-<h2>Add New Debt</h2>
-<%= bootstrap_form_with model: @debt, url: user_debts_path(user_id: @user.id) do |form| %>
+<h3>Add New Debt</h3>
+<%= bootstrap_form_with model: @debt, url: user_debts_path(user_id: @user.id), class: 'new_edit' do |form| %>
   <%= render 'form', form: form %>
   <%= form.submit 'Add Debt' %>
 <%end%>
