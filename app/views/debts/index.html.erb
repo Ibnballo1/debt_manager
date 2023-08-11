@@ -4,8 +4,8 @@
     <ul>
       <%@debts.each_with_index do |debt, index|%>
         <li><%= index + 1%></li>
-        <li><%=link_to debt.debtor, user_debt_path(user_id: debt.user_id, id: debt.id) %></li>
-        <%= form_with(model: debt, url: user_debt_path(user_id: debt.user_id, id: debt.id),
+        <li><%=link_to debt.debtor, debt_path(id: debt.id) %></li>
+        <%= form_with(model: debt, url: debt_path(id: debt.id),
         method: :delete, data: { confirm: 'Are you sure you want to delete this debt?' }) do |form| %>
           <%= form.button '', class: 'btn', type: 'submit' do %>
             <i class="fa-regular fa-trash-can"></i>
@@ -20,6 +20,6 @@
 
 <footer class='footer'>
   <button>
-    <%=link_to 'Add Debt', new_user_debt_path(user_id: @user.id)%>
+    <%=link_to 'Add Debt', new_debt_path%>
   </button>
 </footer>
