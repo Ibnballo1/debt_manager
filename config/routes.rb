@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  resources :users do
-    resources :debts
-  end
+  resources :users
+  resources :debts
 
   root 'users#index'
 end
