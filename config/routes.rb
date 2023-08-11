@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/index'
   resources :debts
 
-  root 'debts#index'
+  root 'home#index'
 end
