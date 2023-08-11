@@ -22,6 +22,7 @@ class DebtsController < ApplicationController
     if @debt.save
       redirect_to debts_path(), notice: "Debt was successfully created."
     else
+      puts "Not saved"
       render :new
     end
   end
