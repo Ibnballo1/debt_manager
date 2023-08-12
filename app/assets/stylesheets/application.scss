@@ -59,6 +59,45 @@ header {
     text-align: center;
   }
 
+  article {
+    padding: 0.25rem 0.5rem;
+
+    .debt-box {
+      border-radius: 12px;
+      background-color: #542759;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      .debt-detail {
+        width: 85%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 1rem;
+
+        .amt {
+          margin: auto 0;
+          font-weight: bold;
+          font-size: 1.5rem;
+        }
+
+        .debtor-info {
+          padding-top: 0.75rem;
+          line-height: 5px;
+
+          .debtor {
+            a {
+              font-weight: bold;
+              color: skyblue;
+            }
+          }
+        }
+      }
+    }
+  }
+
   ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -110,11 +149,6 @@ header {
     padding: 12px;
     margin-bottom: 10px;
     border-radius: 30px;
-
-    a {
-      text-decoration: none;
-      color: #fff;
-    }
   }
 }
 
@@ -143,4 +177,13 @@ header {
 
 h3 {
   text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.fa-regular {
+  color: #fff;
 }
