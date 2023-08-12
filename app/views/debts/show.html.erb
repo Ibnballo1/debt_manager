@@ -1,6 +1,5 @@
 <section class='debt-show'>
   <h3><%=@debt.debtor%> Debt Details </h3>
-  <%if @user.id == @debt.user_id%>
     <article>
       <h5>Amount</h5>
       <h5>Due Date</h5>
@@ -14,12 +13,11 @@
       <%else %>
         <p>Status: Unpaid</p>
       <%end%>
-      
     </article>
-  <%end%>
 </section>
+
 <footer class='footer'>
   <button>
-    <%=link_to "Edit #{@debt.debtor}'s Debt", edit_user_debt_path(user_id: @user.id, id: @debt.id) %>
+    <%=link_to "Edit #{@debt.debtor}'s Debt", edit_debt_path(id: @debt.id) %>
   </button>
 </footer>
