@@ -1,5 +1,5 @@
 <header>
-  <h1>You're Welcome</h1>
+  <h1>Welcome <br />to <br />DebtEase</h1>
 </header>
 
 <section class="index-section">
@@ -9,5 +9,8 @@
 
 <footer class='footer'>
   <p>Start managing your debts today!</p>
-  <button><%=link_to 'Manage Debt', debts_path %></button>
+  <div>
+    <button><%=link_to 'Log In', new_user_session_path %></button>
+    <button><%=link_to 'Sign Up', new_user_registration_path %></button>
+  </div>
 </footer>
