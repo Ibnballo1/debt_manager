@@ -1,5 +1,6 @@
 <section class='debt-section'>
   <h3>List of Your Debts</h3>
+  <p>Current user is <%=current_user.name%></p>
   <%if @debts.any? %>
     <article>
       <%@debts.each do |debt|%>
