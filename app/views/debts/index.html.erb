@@ -1,9 +1,8 @@
 <section class='debt-section'>
   <h3>List of Your Debts</h3>
-  <p>Current user is <%=current_user.name%></p>
-  <%if @debts.any? %>
+  <%if @debts.where(user_id: current_user.id).any? %>
     <article>
-      <%@debts.each do |debt|%>
+      <% @debts.where(user_id: current_user.id).each do |debt| %>
         <div class='debt-box'>
           <div class='debt-detail'>
             <p class='amt'>$<%= debt.amount %></p>
