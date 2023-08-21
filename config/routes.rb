@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # devise_for :users
   devise_for :users, path: '', path_names: {
     sign_in: 'login', sign_out: 'logout',
     password: 'secret', confirmation: 'verification',
@@ -7,7 +6,6 @@ Rails.application.routes.draw do
   }, sign_out_via: [:get, :post]
 
   resources :users
-  # get 'home/index'
   resources :debts
 
   root 'home#index'
