@@ -8,10 +8,6 @@ class Debt < ApplicationRecord
   def due_day(debt_date, due_date)
     date_of_debt = debt_date.to_date
     exp_day = (due_date - date_of_debt).to_i
-    if exp_day < 1
-      return "Your Debt is due"
-    else
-      return "Due: in #{exp_day} Days"
-    end
+    exp_day < 1 ? "Your Debt is due" : "Due: in #{exp_day} Days"
   end
 end
