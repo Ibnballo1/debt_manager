@@ -1,14 +1,15 @@
 <section class='debt-section'>
   <h3>List of Your Debts</h3>
-  <%if @debts.any? %>
+
+  <%if @debts.where(user_id: current_user.id).any? %>
     <article>
-      <%@debts.each do |debt|%>
+      <% @debts.where(user_id: current_user.id).each do |debt| %>
         <div class='debt-box'>
           <div class='debt-detail'>
             <p class='amt'>$<%= debt.amount %></p>
             <div class='debtor-info'>
               <p class='debtor'>to: <%=link_to debt.debtor, debt_path(id: debt.id) %></p>
-              <p>Due: in <%=debt.due_date %></p>
+              <p><%= debt.due_day(debt.created_at, debt.due_date) %></p>
             </div>
           </div>
           <%= form_with(model: debt, url: debt_path(id: debt.id),
