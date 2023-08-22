@@ -1,3 +1,11 @@
+<section>
+  <% if flash[:alert] %>
+    <div class="alert alert-danger">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+</section>
+
 <section class='debt-section'>
   <h3>List of Your Debts</h3>
 
