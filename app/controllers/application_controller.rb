@@ -17,7 +17,8 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    debts_path(resource) # Redirect to the debts page after sign-in
+    flash[:notice] = "Signed in successfully"
+    debts_path # Redirect to the debts page after sign-in
   end
 
   def after_sign_out_path_for(resource)

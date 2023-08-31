@@ -36,7 +36,7 @@ class DebtsController < ApplicationController
   # Update user
   def update
     if @debt.update(debt_params)
-      redirect_to debts_path(), notice: "Debt was successfully created."
+      redirect_to debts_path(), notice: "Debt was successfully updated."
     else
       render :edit
     end
