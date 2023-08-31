@@ -4,6 +4,12 @@
       <%= flash[:alert] %>
     </div>
   <% end %>
+
+  <% if flash[:notice].present? %>
+    <div class='flash-msg'>
+      <%=flash[:notice]%>
+    </div>
+  <% end %>
 </section>
 
 <section class='debt-section'>
