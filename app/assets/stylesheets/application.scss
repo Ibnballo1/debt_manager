@@ -167,6 +167,18 @@ header {
   }
 }
 
+/*
+  Sign i  and Sign up form
+*/
+
+.new_user {
+  padding: 0 0.5rem;
+
+  .form-control {
+    border: 2px solid brown !important;
+  }
+}
+
 .footer {
   width: 100%;
   text-align: center;
