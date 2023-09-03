@@ -1,5 +1,11 @@
+<section class='top-nav'>
+  <%=link_to debts_path do %>
+    <i class="fa-solid fa-arrow-left"></i>
+  <% end %>
+  <h3><%=@debt.debtor%> Debt</h3>
+</section>
+
 <section class='debt-show'>
-  <h3><%=@debt.debtor%> Debt Details </h3>
     <article>
       <h5>Amount</h5>
       <h5>Due Date</h5>
@@ -9,15 +15,15 @@
       <p><%=@debt.amount%></p>
       <p><%=@debt.due_date%></p>
       <%if @debt.is_paid %>
-        <p>Status: Paid</p>
+        <p>Paid</p>
       <%else %>
-        <p>Status: Unpaid</p>
+        <p>Unpaid</p>
       <%end%>
     </article>
 </section>
 
 <footer class='footer'>
   <button>
-    <%=link_to "Edit #{@debt.debtor}'s Debt", edit_debt_path(id: @debt.id) %>
+    <%=link_to "Edit Debt", edit_debt_path(id: @debt.id) %>
   </button>
 </footer>
