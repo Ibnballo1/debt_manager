@@ -59,6 +59,35 @@ header {
   }
 }
 
+.top-nav {
+  background-color: #259672;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+
+  h3 {
+    color: #fff;
+    font-size: 20px;
+  }
+
+  h3,
+  a {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.flashes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+  background-color: #000;
+  color: #fff;
+}
+
 .debt-section {
   padding: 0 1rem;
 
@@ -67,7 +96,7 @@ header {
   }
 
   article {
-    padding: 0.25rem 0.5rem;
+    padding: 0.25rem 0.25rem;
 
     .debt-box {
       border-radius: 12px;
