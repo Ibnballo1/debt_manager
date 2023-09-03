@@ -1,4 +1,10 @@
-<h3>Add New Debt</h3>
+<section class='top-nav'>
+  <%=link_to debts_path do %>
+    <i class="fa-solid fa-arrow-left"></i>
+  <% end %>
+  <h3>New Debt</h3>
+</section>
+
 <%= bootstrap_form_with model: @debt, url: debts_path(), class: 'new_edit' do |form| %>
   <%= render 'form', form: form %>
   <%= form.submit 'Add Debt' %>
