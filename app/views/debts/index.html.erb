@@ -1,4 +1,11 @@
-<section>
+<section class='top-nav'>
+  <%=link_to root_path do %>
+    <i class="fa-solid fa-arrow-left"></i>
+  <% end %>
+  <h3>Your Debts</h3>
+</section>
+
+<section class='flashes'>
   <% if flash[:alert] %>
     <div class="alert alert-danger">
       <%= flash[:alert] %>
@@ -13,8 +20,6 @@
 </section>
 
 <section class='debt-section'>
-  <h3>List of Your Debts</h3>
-
   <%if @debts.where(user_id: current_user.id).any? %>
     <article>
       <% @debts.where(user_id: current_user.id).each do |debt| %>
@@ -23,7 +28,7 @@
             <p class='amt'>$<%= debt.amount %></p>
             <div class='debtor-info'>
               <p class='debtor'>to: <%=link_to debt.debtor, debt_path(id: debt.id) %></p>
-              <p><%= debt.due_day(debt.created_at, debt.due_date) %></p>
+              <p>Due: <%= debt.due_date %></p>
             </div>
           </div>
           <%= form_with(model: debt, url: debt_path(id: debt.id),
