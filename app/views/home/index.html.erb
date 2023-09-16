@@ -1,9 +1,5 @@
 <header>
-  <% if user_signed_in? %>
-    <h1>Welcome <%=current_user.name%></h1>
-  <% else %>
-    <h1>DebtEase</h1>
-  <% end %>
+  <h1><%= user_signed_in? ? "Welcome #{current_user.name}" : "DebtEase" %></h1>
 </header>
 
 <section class="index-section">
