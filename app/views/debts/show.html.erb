@@ -9,7 +9,7 @@
     <article>
       <h5>Amount</h5>
       <h5>Due Date</h5>
-      <h5>Paid</h5>
+      <h5>Status</h5>
     </article>
     <article>
       <p><%=@debt.amount%></p>
@@ -26,4 +26,11 @@
   <button>
     <%=link_to "Edit Debt", edit_debt_path(id: @debt.id) %>
   </button>
+  
+  <%= form_with(model: @debt, url: debt_path(id: @debt.id),
+          method: :delete, data: { confirm: 'Are you sure you want to delete this debt?' }) do |form| %>
+    <%= form.button '', class: 'btn', type: 'submit' do %>
+      Delete Debt
+    <%end%>
+  <% end %>
 </footer>

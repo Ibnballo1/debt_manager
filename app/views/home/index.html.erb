@@ -1,9 +1,5 @@
 <header>
-  <% if user_signed_in? %>
-    <h1>Welcome <%=current_user.name%></h1>
-  <% else %>
-    <h1>DebtEase</h1>
-  <% end %>
+  <h1><%= user_signed_in? ? "Welcome #{current_user.name}" : "DebtEase" %></h1>
 </header>
 
 <section class="index-section">
@@ -17,13 +13,21 @@
   <% if user_signed_in? %>
     <p>Start managing your debts today!</p>
     <div>
-      <button><%=link_to 'Manage Your Debt', debts_path %></button>
-      <button><%=link_to 'Sign Out', destroy_user_session_path, method: :delete %></button>
+      <%=link_to debts_path do%>
+        <button>Manage Your Debt</button>
+      <%end%>
+      <%=link_to destroy_user_session_path, method: :delete do %>
+        <button>Sign Out</button>
+      <%end%>
     </div>
   <%else%>
     <div>
-      <button><%=link_to 'Log In', new_user_session_path %></button>
-      <button><%=link_to 'Sign Up', new_user_registration_path %></button>
+      <%=link_to new_user_session_path do %>
+        <button>Log In</button>
+      <%end%>
+      <%=link_to new_user_registration_path do %>
+        <button>Sign Up</button>
+      <%end%>
     </div>
   <%end%>
 </footer>

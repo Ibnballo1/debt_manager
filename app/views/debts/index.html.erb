@@ -19,6 +19,8 @@
   <% end %>
 </section>
 
+<p class='info'>Click on the debtor's name for more info</p>
+
 <section class='debt-section'>
   <%if @debts.where(user_id: current_user.id).any? %>
     <article>
@@ -31,12 +33,9 @@
               <p>Due: <%= debt.due_date %></p>
             </div>
           </div>
-          <%= form_with(model: debt, url: debt_path(id: debt.id),
-          method: :delete, data: { confirm: 'Are you sure you want to delete this debt?' }) do |form| %>
-            <%= form.button '', class: 'btn', type: 'submit' do %>
-              <i class="fa-regular fa-trash-can"></i>
-            <%end%>
-          <% end %>
+          <%=link_to edit_debt_path(id: debt.id), class: 'edit-link' do%>
+            <i class="fa-regular fa-pen-to-square"></i>
+          <%end%>
         </div>
       <%end%>
     </article>
@@ -46,7 +45,7 @@
 </section>
 
 <footer class='footer'>
-  <button>
-    <%=link_to 'Add Debt', new_debt_path%>
-  </button>
+  <%=link_to new_debt_path do %>
+    <button>Add Debt</button>
+  <%end%>
 </footer>
