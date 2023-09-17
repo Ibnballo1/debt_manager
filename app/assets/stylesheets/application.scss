@@ -89,6 +89,13 @@ header {
   color: #fff;
 }
 
+.info {
+  text-align: center;
+  font-size: 0.5erm;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
 .debt-section {
   padding: 0 1rem;
 
@@ -107,6 +114,10 @@ header {
       justify-content: space-between;
       align-items: center;
       margin-bottom: 1rem;
+
+      .edit-link {
+        padding-right: 1rem;
+      }
 
       .debt-detail {
         width: 85%;
@@ -141,8 +152,7 @@ header {
     list-style-type: none;
     font-size: 1.275rem;
 
-    li,
-    form {
+    li {
       border-bottom: 2px solid brown;
     }
 
@@ -169,15 +179,15 @@ header {
 }
 
 /*
-  Sign i  and Sign up form
+  Sign in  and Sign up form
 */
 
 .new_user {
   padding: 0 0.5rem;
+}
 
-  .form-control {
-    border: 2px solid brown !important;
-  }
+.btn {
+  background-color: #259672;
 }
 
 .footer {
@@ -219,10 +229,6 @@ header {
 
 .new_edit {
   padding: 1rem;
-
-  .edit {
-    border: 2px solid purple;
-  }
 }
 
 
