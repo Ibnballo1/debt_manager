@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_24_083045) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_24_090707) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"
   enable_extension "plpgsql"
@@ -28,9 +28,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_24_083045) do
 
   create_table "debts", force: :cascade do |t|
     t.string "debtor"
-    t.date "due_date"
-    t.decimal "amount"
-    t.boolean "is_paid", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
