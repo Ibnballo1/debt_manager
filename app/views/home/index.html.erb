@@ -2,6 +2,8 @@
   <h1><%= user_signed_in? ? "Welcome #{current_user.name}" : "DebtEase" %></h1>
 </header>
 
+<p>Link to Debt details <%=link_to 'debtdetails', debt_details_path() %></p>
+
 <section class="index-section">
   <% unless user_signed_in? %>
     <p class="para">You can manage your debts with ease.</p>
@@ -13,7 +15,7 @@
   <% if user_signed_in? %>
     <p>Start managing your debts today!</p>
     <div>
-      <%=link_to debts_path do%>
+      <%=link_to debt_details_path do%>
         <button>Manage Your Debt</button>
       <%end%>
       <%=link_to destroy_user_session_path, method: :delete do %>
