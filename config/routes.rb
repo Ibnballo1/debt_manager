@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :debts
+  resources :debt_details
 
   root 'home#index'
 end
