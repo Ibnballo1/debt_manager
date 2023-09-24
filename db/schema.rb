@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_18_150029) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_24_083045) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"
   enable_extension "plpgsql"
+
+  create_table "debt_details", force: :cascade do |t|
+    t.decimal "amount"
+    t.date "due_date"
+    t.boolean "is_paid"
+    t.text "reason"
+    t.bigint "debt_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["debt_id"], name: "index_debt_details_on_debt_id"
+  end
 
   create_table "debts", force: :cascade do |t|
     t.string "debtor"
@@ -39,5 +50,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_18_150029) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "debt_details", "debts"
   add_foreign_key "debts", "users"
 end
