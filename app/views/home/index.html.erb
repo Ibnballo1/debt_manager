@@ -2,8 +2,6 @@
   <h1><%= user_signed_in? ? "Welcome #{current_user.name}" : "DebtEase" %></h1>
 </header>
 
-<p>Link to Debt details <%=link_to 'debtdetails', debt_details_path() %></p>
-
 <section class="index-section">
   <% unless user_signed_in? %>
     <p class="para">You can manage your debts with ease.</p>
