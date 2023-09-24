@@ -9,5 +9,6 @@ class Ability
 
     return unless user.present?
     can :manage, Debt, user: user
+    can :manage, DebtDetail, user: user
   end
 end
