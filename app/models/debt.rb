@@ -3,8 +3,6 @@ class Debt < ApplicationRecord
   has_many :debt_details
 
   validates :debtor, presence: true, length: { minimum: 3, maximum: 100 }
-  validates :due_date, presence: true
-  validates :amount, presence: true, numericality: { greater_than: 0 }
 
   def due_day(debt_date, due_date)
     date_of_debt = debt_date.to_date

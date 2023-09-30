@@ -5,7 +5,18 @@
   <h3>New Debt</h3>
 </section>
 
-<%= bootstrap_form_with model: @debt, url: debts_path(), class: 'new_edit' do |form| %>
-  <%= render 'form', form: form %>
-  <%= form.submit 'Add Debt' %>
+<%= bootstrap_form_with model: @debt, url: debts_path(), class: 'new_edit' do |f| %>
+  <!-- Debt fields -->
+  <%= f.text_field :debtor %>
+
+  <!-- DebtDetail fields -->
+  <%= f.fields_for :debt_details do |debt_detail_fields| %>
+    <%= debt_detail_fields.text_field :amount %>
+
+    <%= debt_detail_fields.date_field :due_date %>
+
+    <%= debt_detail_fields.text_area :reason %>
+  <% end %>
+
+  <%= f.submit 'Add Debt' %>
 <%end%>
