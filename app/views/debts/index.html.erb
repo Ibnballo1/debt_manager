@@ -20,23 +20,24 @@
 </section>
 
 <p class='info'>Click on the debtor's name for more info</p>
-
 <section class='debt-section'>
   <%if @debts.where(user_id: current_user.id).any? %>
     <article>
       <% @debts.where(user_id: current_user.id).each do |debt| %>
-        <div class='debt-box'>
-          <div class='debt-detail'>
-            <p class='amt'>$<%= debt.amount %></p>
-            <div class='debtor-info'>
-              <p class='debtor'>to: <%=link_to debt.debtor, debt_path(id: debt.id) %></p>
-              <p>Due: <%= debt.due_date %></p>
+        <% debt.debt_details.each do |debt_detail| %>
+          <div class='debt-box'>
+            <div class='debt-detail'>
+              <p class='amt'>$<%= debt_detail.amount %></p>
+              <div class='debtor-info'>
+                <p class='debtor'>to: <%=link_to debt.debtor, debt_details_path(id: debt.id) %></p>
+                <p>Due: <%= debt_detail.due_date %></p>
+              </div>
             </div>
+            <%=link_to edit_debt_path(id: debt.id), class: 'edit-link' do%>
+              <i class="fa-regular fa-pen-to-square"></i>
+            <%end%>
           </div>
-          <%=link_to edit_debt_path(id: debt.id), class: 'edit-link' do%>
-            <i class="fa-regular fa-pen-to-square"></i>
-          <%end%>
-        </div>
+        <%end%>
       <%end%>
     </article>
   <%else%>
