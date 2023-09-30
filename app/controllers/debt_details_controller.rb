@@ -1,9 +1,15 @@
 class DebtDetailsController < ApplicationController
   load_and_authorize_resource
+  before_action :set_debt, only: [:show, :edit, :update, :destroy]
   before_action :set_debt_detail, only: [:show, :edit, :update, :destroy]
 
   def index
-    @debt_details = DebtDetail.all
+    @debt_id = params[:id]
+
+    if @debt_id
+      @debt = Debt.find_by(id: @debt_id)
+      @debt_details = DebtDetail.includes(:debt).where(debt_id: @debt_id)
+    end
   end
 
   # method to create new user
@@ -21,7 +27,7 @@ class DebtDetailsController < ApplicationController
     @debt_detail = DebtDetail.new(debt_detail_params)
   
     if @debt_detail.save
-      redirect_to debts_path(), notice: "Debt was successfully created."
+      redirect_to debt_details_path(), notice: "Debt was successfully created."
     else
       render :new
     end
@@ -35,7 +41,7 @@ class DebtDetailsController < ApplicationController
   # Update user
   def update
     if @debt_detail.update(debt_detail_params)
-      redirect_to debts_path(), notice: "Debt was successfully updated."
+      redirect_to debt_details_path(), notice: "Debt was successfully updated."
     else
       render :edit
     end
@@ -44,16 +50,20 @@ class DebtDetailsController < ApplicationController
   # Destroy user
   def destroy
     @debt_detail.destroy
-    redirect_to debts_path
+    redirect_to debt_details_path
   end
 
   private
+
+  def set_debt
+    @debt = Debt.find(params[:id])
+  end
 
   def set_debt_detail
     @debt_detail = DebtDetail.find(params[:id])
   end
 
   def debt_detail_params
-   params.require(:debt_detail).permit(:due_date, :amount, :is_paid, :reason).merge(user_id: current_user.id)
+    params.require(:debt_detail).permit(:due_date, :amount, :is_paid, :reason, debts_attributes: [:debtor])
   end
 end
