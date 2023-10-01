@@ -1,10 +1,3 @@
-<P>Debt id: <%= @debt.id %></p>
-<div>
-  <% @debt_details.each do |dd| %>
-    <P>Debt_Details id: <%=dd.id%> || Debt_Details debt_id: <%=dd.debt_id%>.</p>
-  <%end%>
-</div>
-
 <section class='top-nav'>
   <%=link_to debts_path do %>
     <i class="fa-solid fa-arrow-left"></i>
@@ -34,10 +27,6 @@
 </section>
 
 <footer class='footer'>
-  <button>
-    <%=link_to "Edit Debt", edit_debt_detail_path(id: @debt_detail.id) %>
-  </button>
-  
   <%= form_with(model: @debt, url: debt_path(id: @debt.id),
           method: :delete, data: { confirm: 'Are you sure you want to delete this debt?' }) do |form| %>
     <%= form.button '', class: 'btn', type: 'submit' do %>
