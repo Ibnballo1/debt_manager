@@ -4,6 +4,7 @@ class DebtDetail < ApplicationRecord
   validates :due_date, presence: true
   validates :amount, presence: true, numericality: { greater_than: 0 }
 
+  # To get the sum of all amounts for a particular creditor
   def self.total_amount(debt_id)
     where(debt_id: debt_id).sum(:amount)
   end
