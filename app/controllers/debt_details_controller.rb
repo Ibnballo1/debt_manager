@@ -1,5 +1,5 @@
 class DebtDetailsController < ApplicationController
-  load_and_authorize_resource
+  # load_and_authorize_resource
   before_action :set_debt, only: [:show, :edit, :update, :destroy]
   before_action :set_debt_detail, only: [:show, :edit, :update, :destroy]
 
@@ -14,7 +14,8 @@ class DebtDetailsController < ApplicationController
 
   # method to create new user
   def new
-    @debt_detail = DebtDetail.new
+    @debt = Debt.find(params[:debt_id]) # You'll need to find the associated debt
+    @debt_detail = @debt.build_debt_detail # Build a new debt_detail associated with the debt
   end
 
   # method to show new user
@@ -27,7 +28,7 @@ class DebtDetailsController < ApplicationController
     @debt_detail = DebtDetail.new(debt_detail_params)
   
     if @debt_detail.save
-      redirect_to debt_details_path(), notice: "Debt was successfully created."
+      redirect_to debts_path(), notice: "Debt was successfully created."
     else
       render :new
     end
@@ -64,6 +65,6 @@ class DebtDetailsController < ApplicationController
   end
 
   def debt_detail_params
-    params.require(:debt_detail).permit(:due_date, :amount, :is_paid, :reason, debts_attributes: [:debtor])
+    params.require(:debt_detail).permit(:due_date, :amount, :is_paid, :reason, debt_attributes: [:creditor])
   end
 end

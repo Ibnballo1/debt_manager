@@ -1,8 +1,9 @@
 class Debt < ApplicationRecord
   belongs_to :user
   has_many :debt_details
+  accepts_nested_attributes_for :debt_details
 
-  validates :debtor, presence: true, length: { minimum: 3, maximum: 100 }
+  validates :creditor, presence: true, length: { minimum: 3, maximum: 100 }
 
   def due_day(debt_date, due_date)
     date_of_debt = debt_date.to_date

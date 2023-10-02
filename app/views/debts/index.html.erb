@@ -19,7 +19,7 @@
   <% end %>
 </section>
 
-<p class='info'>Click on the debtor's name for more info</p>
+<p class='info'>Click on the creditor's name for more info</p>
 <section class='debt-section'>
   <%if @debts.where(user_id: current_user.id).any? %>
     <article>
@@ -29,7 +29,7 @@
             <div class='debt-detail'>
               <p class='amt'>$<%= debt_detail.amount %></p>
               <div class='debtor-info'>
-                <p class='debtor'>to: <%=link_to debt.debtor, debt_details_path(id: debt.id) %></p>
+                <p class='debtor'>to: <%=link_to debt.creditor, debt_details_path(id: debt.id) %></p>
                 <p>Due: <%= debt_detail.due_date %></p>
               </div>
             </div>
@@ -46,7 +46,7 @@
 </section>
 
 <footer class='footer'>
-  <%=link_to new_debt_path do %>
+  <%=link_to new_debt_detail_path do %>
     <button>Add Debt</button>
   <%end%>
 </footer>

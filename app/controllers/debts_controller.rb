@@ -55,6 +55,6 @@ class DebtsController < ApplicationController
   end
 
   def debt_params
-    params.require(:debt).permit(:debtor).merge(user_id: current_user.id)
+    params.require(:debt).permit(:creditor).merge(user_id: current_user.id)
   end
 end
