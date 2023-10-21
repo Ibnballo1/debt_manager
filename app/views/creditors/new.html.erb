@@ -9,13 +9,13 @@
   <!-- Debt fields -->
   <%= f.text_field :creditor %>
 
-  <!-- DebtDetail fields -->
-  <%= f.fields_for :debt_details do |debt_detail_fields| %>
-    <%= debt_detail_fields.text_field :amount %>
+  <!-- Debt fields -->
+  <%= f.fields_for :debts do |debt_fields| %>
+    <%= debt_fields.text_field :amount %>
 
-    <%= debt_detail_fields.date_field :due_date %>
+    <%= debt_fields.date_field :due_date %>
 
-    <%= debt_detail_fields.text_area :reason %>
+    <%= debt_fields.text_area :reason %>
   <% end %>
 
   <%= f.submit 'Add Debt' %>

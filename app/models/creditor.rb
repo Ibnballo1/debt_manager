@@ -1,7 +1,7 @@
 class Creditor < ApplicationRecord
   belongs_to :user
-  has_many :debt_details
-  accepts_nested_attributes_for :debt_details
+  has_many :debts
+  accepts_nested_attributes_for :debts
 
   validates :creditor, presence: true, length: { minimum: 3, maximum: 100 }
 

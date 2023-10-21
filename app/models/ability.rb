@@ -9,6 +9,6 @@ class Ability
 
     return unless user.present?
     can :manage, Creditor, user: user
-    can :manage, DebtDetail, debt: { user_id: user.id }
+    can :manage, Debt, debt: { user_id: user.id }
   end
 end

@@ -13,11 +13,11 @@
       <h5>Status</h5>
     </article>
     <article>
-      <% @creditor.debt_details.each do |debt_detail| %>
-        <p><%=debt_detail.amount%></p>
-        <p><%=debt_detail.due_date%></p>
-        <p><%=debt_detail.default_reason(debt_detail.reason)%></p>
-        <%if debt_detail.is_paid %>
+      <% @creditor.debts.each do |debt| %>
+        <p><%=debt.amount%></p>
+        <p><%=debt.due_date%></p>
+        <p><%=debt.default_reason(debt.reason)%></p>
+        <%if debt.is_paid %>
           <p>Paid</p>
         <%else %>
           <p>Unpaid</p>

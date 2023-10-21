@@ -25,17 +25,17 @@
       <% displayed_creditor_ids = [] %>
       <% @creditors.where(user_id: current_user.id).each do |creditor| %>
         <% unless displayed_creditor_ids.include?(creditor.id) %>
-          <% total_amount_owed = DebtDetail.total_amount(creditor.id)%>
-          <% debt_detail = creditor.debt_details.first %>
+          <% total_amount_owed = Debt.total_amount(creditor.id)%>
+          <% debt = creditor.debts.first %>
           <div class='debt-box'>
             <div class='debt-detail'>
               <p class='amt'>$<%= total_amount_owed %></p>
               <div class='debtor-info'>
                 <p class='debtor'>to: <%= creditor.creditor %></p>
-                <p>Due: <%= debt_detail&.due_date %></p>
+                <p>Due: <%= debt&.due_date %></p>
               </div>
             </div>
-            <%= link_to debt_details_path(id: creditor.id), class: 'edit-link' do %>
+            <%= link_to debts_path(id: creditor.id), class: 'edit-link' do %>
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
             <% end %>
           </div>

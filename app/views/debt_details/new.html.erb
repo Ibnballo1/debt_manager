@@ -1,11 +1,11 @@
 <section class='top-nav'>
-  <%=link_to debt_details_path(id: @creditor.id) do %>
+  <%=link_to debts_path(id: @creditor.id) do %>
     <i class="fa-solid fa-arrow-left"></i>
   <% end %>
   <h3>New Debt</h3>
 </section>
 
-<%= bootstrap_form_with model: @debt_detail, url: debt_details_path, class: 'new_edit' do |form| %>
+<%= bootstrap_form_with model: @debt, url: debts_path, class: 'new_edit' do |form| %>
   <!-- Debt fields -->
   <%= form.text_field :amount %>
   <%= form.date_field :due_date %>

@@ -9,7 +9,7 @@ class CreditorsController < ApplicationController
   # method to create new user
   def new
     @creditor = Creditor.new
-    @creditor.debt_details.build
+    @creditor.debts.build
   end
 
   # method to show new user
@@ -55,6 +55,6 @@ class CreditorsController < ApplicationController
   end
 
   def creditor_params
-    params.require(:creditor).permit(:creditor, debt_details_attributes: [:amount, :due_date, :reason, :is_paid]).merge(user_id: current_user.id)
+    params.require(:creditor).permit(:creditor, debts_attributes: [:amount, :due_date, :reason, :is_paid]).merge(user_id: current_user.id)
   end
 end
