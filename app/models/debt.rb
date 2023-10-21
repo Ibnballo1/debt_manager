@@ -1,4 +1,4 @@
-class DebtDetail < ApplicationRecord
+class Debt < ApplicationRecord
   belongs_to :creditor
 
   validates :due_date, presence: true

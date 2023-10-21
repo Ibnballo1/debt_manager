@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_21_095742) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_21_121331) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"
   enable_extension "plpgsql"
@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_21_095742) do
     t.index ["user_id"], name: "index_creditors_on_user_id"
   end
 
-  create_table "debt_details", force: :cascade do |t|
+  create_table "debts", force: :cascade do |t|
     t.decimal "amount"
     t.date "due_date"
     t.boolean "is_paid", default: false
@@ -31,7 +31,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_21_095742) do
     t.bigint "creditor_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["creditor_id"], name: "index_debt_details_on_creditor_id"
+    t.index ["creditor_id"], name: "index_debts_on_creditor_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,5 +48,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_21_095742) do
   end
 
   add_foreign_key "creditors", "users"
-  add_foreign_key "debt_details", "creditors"
+  add_foreign_key "debts", "creditors"
 end
