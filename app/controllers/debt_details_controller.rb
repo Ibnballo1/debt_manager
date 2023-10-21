@@ -4,20 +4,20 @@ class DebtDetailsController < ApplicationController
   before_action :set_debt_detail, only: [:show, :edit, :update, :destroy]
 
   def index
-    @debt_id = params[:id]
+    @creditor_id = params[:id]
 
-    if @debt_id
-      @creditor = Creditor.find_by(id: @debt_id)
-      @debt_details = DebtDetail.includes(:creditor).where(debt_id: @debt_id)
+    if @creditor_id
+      @creditor = Creditor.find_by(id: @creditor_id)
+      @debt_details = DebtDetail.includes(:creditor).where(creditor_id: @creditor_id)
     end
   end
 
   # method to create new user
   def new
-    @debt_id = params[:id]
+    @creditor_id = params[:id]
 
-    if @debt_id
-      @creditor = Creditor.find_by(id: @debt_id)
+    if @creditor_id
+      @creditor = Creditor.find_by(id: @creditor_id)
       if @creditor
         @debt_detail = @creditor.debt_details.build # Build a new debt_detail associated with the creditor
       else
@@ -52,7 +52,7 @@ class DebtDetailsController < ApplicationController
   # Update user
   def update
     if @debt_detail.update(debt_detail_params)
-      redirect_to debt_details_path(id: @debt_detail.debt_id), notice: "Debt was successfully updated."
+      redirect_to debt_details_path(id: @debt_detail.creditor_id), notice: "Debt was successfully updated."
     else
       render :edit
     end
@@ -61,7 +61,7 @@ class DebtDetailsController < ApplicationController
   # Destroy user
   def destroy
     @debt_detail.destroy
-    redirect_to debt_details_path(id: @debt_detail.debt_id)
+    redirect_to debt_details_path(id: @debt_detail.creditor_id)
   end
 
   private
@@ -75,6 +75,6 @@ class DebtDetailsController < ApplicationController
   end
 
   def debt_detail_params
-    params.require(:debt_detail).permit(:due_date, :amount, :reason, :is_paid, :debt_id)
+    params.require(:debt_detail).permit(:due_date, :amount, :reason, :is_paid, :creditor_id)
   end
 end

@@ -10,6 +10,6 @@
   <%= form.text_field :amount %>
   <%= form.date_field :due_date %>
   <%= form.text_area :reason %>
-  <%= form.hidden_field :debt_id, value: @creditor.id %>
+  <%= form.hidden_field :creditor_id, value: @creditor.id %>
   <%= form.submit 'Add Debt' %>
 <%end%>
