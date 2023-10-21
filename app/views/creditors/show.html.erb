@@ -1,8 +1,8 @@
 <section class='top-nav'>
-  <%=link_to debts_path do %>
+  <%=link_to creditors_path do %>
     <i class="fa-solid fa-arrow-left"></i>
   <% end %>
-  <h3><%=@debt.creditor%> Debt</h3>
+  <h3><%=@creditor.creditor%> Debt</h3>
 </section>
 
 <section class='debt-show'>
@@ -13,7 +13,7 @@
       <h5>Status</h5>
     </article>
     <article>
-      <% @debt.debt_details.each do |debt_detail| %>
+      <% @creditor.debt_details.each do |debt_detail| %>
         <p><%=debt_detail.amount%></p>
         <p><%=debt_detail.due_date%></p>
         <p><%=debt_detail.default_reason(debt_detail.reason)%></p>
@@ -28,10 +28,10 @@
 
 <footer class='footer'>
   <button>
-    <%=link_to "Edit Debt", edit_debt_path(id: @debt.id) %>
+    <%=link_to "Edit Debt", edit_creditor_path(id: @creditor.id) %>
   </button>
   
-  <%= form_with(model: @debt, url: debt_path(id: @debt.id),
+  <%= form_with(model: @creditor, url: creditor_path(id: @creditor.id),
           method: :delete, data: { confirm: 'Are you sure you want to delete this debt?' }) do |form| %>
     <%= form.button '', class: 'btn', type: 'submit' do %>
       Delete Debt

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   }, sign_out_via: [:get, :post]
 
   resources :users
-  resources :debts
+  resources :creditors
   resources :debt_details 
 
   root 'home#index'

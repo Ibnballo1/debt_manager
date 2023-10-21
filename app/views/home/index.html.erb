@@ -13,7 +13,7 @@
   <% if user_signed_in? %>
     <p>Start managing your debts today!</p>
     <div>
-      <%=link_to debts_path do%>
+      <%=link_to creditors_path do%>
         <button>Manage Your Debt</button>
       <%end%>
       <%=link_to destroy_user_session_path, method: :delete do %>

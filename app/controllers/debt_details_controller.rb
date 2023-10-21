@@ -1,14 +1,14 @@
 class DebtDetailsController < ApplicationController
   # load_and_authorize_resource
-  before_action :set_debt, only: [:show]
+  before_action :set_creditor, only: [:show]
   before_action :set_debt_detail, only: [:show, :edit, :update, :destroy]
 
   def index
     @debt_id = params[:id]
 
     if @debt_id
-      @debt = Debt.find_by(id: @debt_id)
-      @debt_details = DebtDetail.includes(:debt).where(debt_id: @debt_id)
+      @creditor = Creditor.find_by(id: @debt_id)
+      @debt_details = DebtDetail.includes(:creditor).where(debt_id: @debt_id)
     end
   end
 
@@ -17,17 +17,15 @@ class DebtDetailsController < ApplicationController
     @debt_id = params[:id]
 
     if @debt_id
-      @debt = Debt.find_by(id: @debt_id)
-      if @debt
-        @debt_detail = @debt.debt_details.build # Build a new debt_detail associated with the creditor
+      @creditor = Creditor.find_by(id: @debt_id)
+      if @creditor
+        @debt_detail = @creditor.debt_details.build # Build a new debt_detail associated with the creditor
       else
-        redirect_to debts_path, alert: "Creditor not found."
+        redirect_to creditors_path, alert: "Creditor not found."
       end
     else
-      redirect_to debts_path, alert: "Missing creditor ID."
-      # @debt_detail = @debt.debt_details.build # Build a new debt_detail associated with the debt
+      redirect_to creditors_path, alert: "Missing creditor ID."
     end
-    # @debt = Debt.find(params[:debt_id]) # You'll need to find the associated debt
   end
 
   # method to show new user
@@ -40,7 +38,7 @@ class DebtDetailsController < ApplicationController
     @debt_detail = DebtDetail.new(debt_detail_params)
   
     if @debt_detail.save
-      redirect_to debts_path, notice: "Debt was successfully created."
+      redirect_to creditors_path, notice: "Debt was successfully created."
     else
       render :new
     end
@@ -68,8 +66,8 @@ class DebtDetailsController < ApplicationController
 
   private
 
-  def set_debt
-    @debt = Debt.find(params[:id])
+  def set_creditor
+    @creditor = Creditor.find(params[:id])
   end
 
   def set_debt_detail

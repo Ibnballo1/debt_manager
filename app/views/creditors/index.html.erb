@@ -20,36 +20,36 @@
 </section>
 
 <section class='debt-section'>
-  <% if @debts.where(user_id: current_user.id).any? %>
+  <% if @creditors.where(user_id: current_user.id).any? %>
     <article>
-      <% displayed_debt_ids = [] %>
-      <% @debts.where(user_id: current_user.id).each do |debt| %>
-        <% unless displayed_debt_ids.include?(debt.id) %>
-          <% total_amount_owed = DebtDetail.total_amount(debt.id)%>
-          <% debt_detail = debt.debt_details.first %>
+      <% displayed_creditor_ids = [] %>
+      <% @creditors.where(user_id: current_user.id).each do |creditor| %>
+        <% unless displayed_creditor_ids.include?(creditor.id) %>
+          <% total_amount_owed = DebtDetail.total_amount(creditor.id)%>
+          <% debt_detail = creditor.debt_details.first %>
           <div class='debt-box'>
             <div class='debt-detail'>
               <p class='amt'>$<%= total_amount_owed %></p>
               <div class='debtor-info'>
-                <p class='debtor'>to: <%= debt.creditor %></p>
+                <p class='debtor'>to: <%= creditor.creditor %></p>
                 <p>Due: <%= debt_detail&.due_date %></p>
               </div>
             </div>
-            <%= link_to debt_details_path(id: debt.id), class: 'edit-link' do %>
+            <%= link_to debt_details_path(id: creditor.id), class: 'edit-link' do %>
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
             <% end %>
           </div>
-          <% displayed_debt_ids << debt.id %>
+          <% displayed_creditor_ids << creditor.id %>
         <% end %>
       <% end %>
     </article>
   <% else %>
-    <p class='no-debt'>You did not have any debt, use the button below to add new debts</p>
+    <p class='no-debt'>You did not have any Creditor, use the button below to add new debts</p>
   <% end %>
 </section>
 
 <footer class='footer'>
-  <%=link_to new_debt_path do %>
+  <%=link_to new_creditor_path do %>
     <button>New Debt</button>
   <%end%>
 </footer>

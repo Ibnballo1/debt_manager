@@ -1,4 +1,4 @@
-class Debt < ApplicationRecord
+class Creditor < ApplicationRecord
   belongs_to :user
   has_many :debt_details
   accepts_nested_attributes_for :debt_details

@@ -1,8 +1,8 @@
 <section class='top-nav'>
-  <%=link_to debts_path do %>
+  <%=link_to creditors_path do %>
     <i class="fa-solid fa-arrow-left"></i>
   <% end %>
-  <h3><%=@debt.creditor%> Debt</h3>
+  <h3><%=@creditor.creditor%> Debt</h3>
 </section>
 
 <section class='flashes'>
@@ -27,7 +27,7 @@
     <h5>Status</h5>
   </article>
   <article>
-    <% @debt.debt_details.each do |debt_detail| %>
+    <% @creditor.debt_details.each do |debt_detail| %>
       <p><%=debt_detail.amount%></p>
       <p><%=debt_detail.due_date%></p>
       <p><%=debt_detail.default_reason(debt_detail.reason)%></p>
@@ -50,7 +50,7 @@
 </section>
 
 <footer class='footer'>
-  <%=link_to new_debt_detail_path(id: @debt.id) do %>
+  <%=link_to new_debt_detail_path(id: @creditor.id) do %>
     <button>Add Debt</button>
   <%end%>
 </footer>
