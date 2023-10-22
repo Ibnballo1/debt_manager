@@ -35,7 +35,7 @@ class DebtsController < ApplicationController
 
   # create debt
   def create
-    @debt = Deb.new(debt_params)
+    @debt = Debt.new(debt_params)
   
     if @debt.save
       redirect_to creditors_path, notice: "Debt was successfully created."

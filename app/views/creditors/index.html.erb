@@ -35,6 +35,14 @@
                 <p>Due: <%= debt&.due_date %></p>
               </div>
             </div>
+            <% if total_amount_owed == 0%>
+              <%= form_with(model: creditor, url: creditor_path(id: creditor.id),
+                method: :delete, data: { confirm: 'Are you sure you want to delete this debt?' }) do |form| %>
+                <%= form.button '', class: 'btn', type: 'submit' do %>
+                  <i class="fa-regular fa-trash-can"></i>
+                <%end%>
+              <% end %>
+            <%end%>
             <%= link_to debts_path(id: creditor.id), class: 'edit-link' do %>
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
             <% end %>
