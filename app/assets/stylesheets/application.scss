@@ -59,32 +59,51 @@ header {
 }
 
 .top-nav {
-  background-color: #259672;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  padding: 0.5rem;
+  background: linear-gradient(135deg, #259672, #1673a0);
+  display: flex;
+  align-items: center;
+  padding: 1rem;
   margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   h3 {
     color: #fff;
-    font-size: 20px;
-  }
-
-  h3,
-  a {
-    display: flex;
-    align-items: center;
+    font-size: 1.5rem;
+    margin: 0 auto;
   }
 }
 
+// .flashes {
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: center;
+//   align-items: center;
+//   margin-bottom: 12px;
+//   background-color: #000;
+//   color: #fff;
+// }
+
 .flashes {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin-bottom: 12px;
-  background-color: #000;
+}
+
+.alert.alert-danger {
+  background-color: #ff4d4d;
   color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.flash-msg {
+  background-color: #259672;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .info {
@@ -94,50 +113,129 @@ header {
   margin-bottom: 8px;
 }
 
-.debt-section {
-  padding: 0 1rem;
+// .debt-section {
+//   padding: 0 1rem;
 
-  h3 {
-    text-align: center;
-  }
+//   h3 {
+//     text-align: center;
+//   }
+
+//   article {
+//     padding: 0.25rem 0.25rem;
+
+//     .debt-box {
+//       border-radius: 12px;
+//       background-color: #542759;
+//       color: #fff;
+//       display: flex;
+//       justify-content: space-between;
+//       align-items: center;
+//       margin-bottom: 1rem;
+
+//       .edit-link {
+//         padding-right: 1rem;
+//       }
+
+//       .debt-detail {
+//         width: 85%;
+//         display: flex;
+//         justify-content: space-between;
+//         padding: 0 1rem;
+
+//         .amt {
+//           margin: auto 0;
+//           font-weight: bold;
+//           font-size: 1.5rem;
+//         }
+
+//         .debtor-info {
+//           padding-top: 0.75rem;
+//           line-height: 5px;
+
+//           .debtor {
+//             a {
+//               font-weight: bold;
+//               color: skyblue;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+
+//   ul {
+//     display: grid;
+//     grid-template-columns: repeat(3, 1fr);
+//     list-style-type: none;
+//     font-size: 1.275rem;
+
+//     li {
+//       border-bottom: 2px solid brown;
+//     }
+
+//     li,
+//     a {
+//       padding: 1rem 0;
+//     }
+
+//     form {
+//       display: flex;
+//       margin: 0 auto;
+//     }
+
+//     a {
+//       text-decoration: none;
+//     }
+//   }
+
+//   .no-debt {
+//     font-size: 1.25rem;
+//     text-align: center;
+//     padding: 0.75rem;
+//   }
+// }
+
+.debt-section {
+  padding: 1rem;
+  text-align: center;
 
   article {
-    padding: 0.25rem 0.25rem;
+    padding: 0.5rem;
+  }
 
-    .debt-box {
-      border-radius: 12px;
-      background-color: #542759;
-      color: #fff;
+  .debt-box {
+    border-radius: 12px;
+    background: linear-gradient(135deg, #542759, #452379);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .edit-link {
+      padding-right: 1rem;
+    }
+
+    .debt-detail {
+      width: 85%;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
+      padding: 0 1rem;
 
-      .edit-link {
-        padding-right: 1rem;
+      .amt {
+        margin: auto 0;
+        font-weight: bold;
+        font-size: 1.5rem;
       }
 
-      .debt-detail {
-        width: 85%;
-        display: flex;
-        justify-content: space-between;
-        padding: 0 1rem;
+      .debtor-info {
+        padding-top: 0.75rem;
 
-        .amt {
-          margin: auto 0;
-          font-weight: bold;
-          font-size: 1.5rem;
-        }
-
-        .debtor-info {
-          padding-top: 0.75rem;
-          line-height: 5px;
-
-          .debtor {
-            a {
-              font-weight: bold;
-              color: skyblue;
-            }
+        .debtor {
+          a {
+            font-weight: bold;
+            color: #50c9d2;
           }
         }
       }
@@ -149,19 +247,11 @@ header {
     grid-template-columns: repeat(3, 1fr);
     list-style-type: none;
     font-size: 1.275rem;
+    padding: 0;
 
     li {
-      border-bottom: 2px solid brown;
-    }
-
-    li,
-    a {
+      border-bottom: 2px solid #8e44ad;
       padding: 1rem 0;
-    }
-
-    form {
-      display: flex;
-      margin: 0 auto;
     }
 
     a {
