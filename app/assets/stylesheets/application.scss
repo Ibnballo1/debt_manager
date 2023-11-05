@@ -19,44 +19,42 @@
 
 body {
   font-family: 'Poppins', sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
 }
 
 header {
-  background-color: #259672;
-  height: 50vh;
+  background: linear-gradient(135deg, #259672, #1673a0);
   border-radius: 0 0 15% 15%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  padding: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem 0;
+  text-align: center;
 
   h1 {
     color: #fff;
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   }
 }
 
 .index-section {
-  height: 30vh;
-  display: grid;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 3rem 1rem 4rem 1rem;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 3rem 1rem;
+  text-align: center;
 
   .para {
-    color: #000;
-    font-weight: 500;
-    font-size: 1.5rem;
-    text-align: center;
+    color: #333;
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 1rem;
   }
 
   .index-section-para2 {
-    color: grey;
-    text-align: center;
+    color: #555;
+    font-size: 1.2rem;
   }
 }
 
@@ -192,24 +190,29 @@ header {
 
 .footer {
   width: 100%;
+  background-color: #259672;
+  color: #fff;
+  padding: 1rem 0;
   text-align: center;
+  font-weight: 500;
   position: absolute;
   bottom: 0;
-  font-weight: 500;
-  font-size: 1.25rem;
 
   p {
-    color: #000;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   button {
-    background-color: #259672;
+    background-color: #1673a0;
     color: #fff;
     border: none;
     width: 90%;
     padding: 12px;
     margin-bottom: 10px;
     border-radius: 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
   }
 }
 
