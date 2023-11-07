@@ -7,5 +7,5 @@
 
 <%= bootstrap_form_with model: @debt, url: debt_path(id: @debt.id), class: 'new_edit' do |form| %>
   <%= render 'form', form: form %>
-  <%= form.submit 'Edit Debt', class: 'edit' %>
+  <%= form.submit 'Edit Debt' %>
 <%end%>

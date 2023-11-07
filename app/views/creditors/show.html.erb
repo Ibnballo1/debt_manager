@@ -1,30 +1,32 @@
-<section class='top-nav'>
-  <%=link_to creditors_path do %>
-    <i class="fa-solid fa-arrow-left"></i>
-  <% end %>
-  <h3><%=@creditor.creditor%> Debt</h3>
-</section>
+<main class='content'>
+  <section class='top-nav'>
+    <%=link_to creditors_path do %>
+      <i class="fa-solid fa-arrow-left"></i>
+    <% end %>
+    <h3><%=@creditor.creditor%> Debt</h3>
+  </section>
 
-<section class='debt-show'>
-    <article>
-      <h5>Amount</h5>
-      <h5>Due Date</h5>
-      <h5>Reason</h5>
-      <h5>Status</h5>
-    </article>
-    <article>
-      <% @creditor.debts.each do |debt| %>
-        <p><%=debt.amount%></p>
-        <p><%=debt.due_date%></p>
-        <p><%=debt.default_reason(debt.reason)%></p>
-        <%if debt.is_paid %>
-          <p>Paid</p>
-        <%else %>
-          <p>Unpaid</p>
+  <section class='debt-show'>
+      <article>
+        <h5>Amount</h5>
+        <h5>Due Date</h5>
+        <h5>Reason</h5>
+        <h5>Status</h5>
+      </article>
+      <article>
+        <% @creditor.debts.each do |debt| %>
+          <p><%=debt.amount%></p>
+          <p><%=debt.due_date%></p>
+          <p><%=debt.default_reason(debt.reason)%></p>
+          <%if debt.is_paid %>
+            <p>Paid</p>
+          <%else %>
+            <p>Unpaid</p>
+          <%end%>
         <%end%>
-      <%end%>
-    </article>
-</section>
+      </article>
+  </section>
+</main>
 
 <footer class='footer'>
   <button>

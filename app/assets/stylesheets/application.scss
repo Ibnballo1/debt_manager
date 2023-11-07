@@ -17,25 +17,39 @@
 @import 'rails_bootstrap_forms';
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #f5f5f5;
-  margin: 0;
-  padding: 0;
 }
 
 header {
   background: linear-gradient(135deg, #259672, #1673a0);
   border-radius: 0 0 15% 15%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 2rem 0;
   text-align: center;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   h1 {
     color: #fff;
     font-size: 2.5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   }
+}
+
+.content {
+  min-height: calc(92% - 2rem);
+  padding: 1rem;
 }
 
 .index-section {
@@ -73,16 +87,6 @@ header {
   }
 }
 
-// .flashes {
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: center;
-//   align-items: center;
-//   margin-bottom: 12px;
-//   background-color: #000;
-//   color: #fff;
-// }
-
 .flashes {
   display: flex;
   justify-content: center;
@@ -112,88 +116,6 @@ header {
   font-style: italic;
   margin-bottom: 8px;
 }
-
-// .debt-section {
-//   padding: 0 1rem;
-
-//   h3 {
-//     text-align: center;
-//   }
-
-//   article {
-//     padding: 0.25rem 0.25rem;
-
-//     .debt-box {
-//       border-radius: 12px;
-//       background-color: #542759;
-//       color: #fff;
-//       display: flex;
-//       justify-content: space-between;
-//       align-items: center;
-//       margin-bottom: 1rem;
-
-//       .edit-link {
-//         padding-right: 1rem;
-//       }
-
-//       .debt-detail {
-//         width: 85%;
-//         display: flex;
-//         justify-content: space-between;
-//         padding: 0 1rem;
-
-//         .amt {
-//           margin: auto 0;
-//           font-weight: bold;
-//           font-size: 1.5rem;
-//         }
-
-//         .debtor-info {
-//           padding-top: 0.75rem;
-//           line-height: 5px;
-
-//           .debtor {
-//             a {
-//               font-weight: bold;
-//               color: skyblue;
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-
-//   ul {
-//     display: grid;
-//     grid-template-columns: repeat(3, 1fr);
-//     list-style-type: none;
-//     font-size: 1.275rem;
-
-//     li {
-//       border-bottom: 2px solid brown;
-//     }
-
-//     li,
-//     a {
-//       padding: 1rem 0;
-//     }
-
-//     form {
-//       display: flex;
-//       margin: 0 auto;
-//     }
-
-//     a {
-//       text-decoration: none;
-//     }
-//   }
-
-//   .no-debt {
-//     font-size: 1.25rem;
-//     text-align: center;
-//     padding: 0.75rem;
-//   }
-// }
 
 .debt-section {
   padding: 1rem;
@@ -266,6 +188,97 @@ header {
   }
 }
 
+.debt-show {
+  padding: 1rem;
+}
+
+.debt-show article {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: #fff;
+  color: #333;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.debt-show h5 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.debt-show p {
+  font-size: 1.25rem;
+  padding: 0.5rem;
+}
+
+.debt-show .edit-link,
+.debt-show form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.debt-show i {
+  font-size: 1.25rem;
+  cursor: pointer;
+  background-color: #fff;
+  color: #000;
+}
+
+.debt-show form button {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.debt-show ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  list-style-type: none;
+  font-size: 1.275rem;
+  padding: 0;
+}
+
+.debt-show li {
+  border-bottom: 2px solid #8e44ad;
+  padding: 1rem 0;
+}
+
+.debt-show a {
+  text-decoration: none;
+}
+
+/* Media Query for Mobile */
+@media screen and (max-width: 768px) {
+  .debt-show article {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .debt-show h5 {
+    font-size: 1.5rem;
+  }
+
+  .debt-show p {
+    font-size: 1.25rem;
+  }
+
+  .debt-show .edit-link,
+  .debt-show form {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .debt-show i {
+    font-size: 1.5rem;
+  }
+}
+
 /*
   Sign in  and Sign up form
 */
@@ -285,8 +298,6 @@ header {
   padding: 1rem 0;
   text-align: center;
   font-weight: 500;
-  position: absolute;
-  bottom: 0;
 
   p {
     font-size: 1.5rem;
@@ -338,4 +349,13 @@ a {
 .fa-regular {
   background-color: #259672;
   color: #fff;
+}
+
+.manage-btn {
+  background-color: #1673a0;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  padding: 12px;
 }

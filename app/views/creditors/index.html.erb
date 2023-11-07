@@ -1,60 +1,62 @@
-<section class='top-nav'>
-  <%=link_to root_path do %>
-    <i class="fa-solid fa-arrow-left"></i>
-  <% end %>
-  <h3>Your Debts</h3>
-</section>
+<main class='content'>
+  <section class='top-nav'>
+    <%=link_to root_path do %>
+      <i class="fa-solid fa-arrow-left"></i>
+    <% end %>
+    <h3>Your Debts</h3>
+  </section>
 
-<section class='flashes'>
-  <% if flash[:alert] %>
-    <div class="alert alert-danger">
-      <%= flash[:alert] %>
-    </div>
-  <% end %>
+  <section class='flashes'>
+    <% if flash[:alert] %>
+      <div class="alert alert-danger">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
 
-  <% if flash[:notice].present? %>
-    <div class='flash-msg'>
-      <%=flash[:notice]%>
-    </div>
-  <% end %>
-</section>
+    <% if flash[:notice].present? %>
+      <div class='flash-msg'>
+        <%=flash[:notice]%>
+      </div>
+    <% end %>
+  </section>
 
-<section class='debt-section'>
-  <% if @creditors.where(user_id: current_user.id).any? %>
-    <article>
-      <% displayed_creditor_ids = [] %>
-      <% @creditors.where(user_id: current_user.id).each do |creditor| %>
-        <% unless displayed_creditor_ids.include?(creditor.id) %>
-          <% total_amount_owed = Debt.total_amount(creditor.id)%>
-          <% debt = creditor.debts.first %>
-          <div class='debt-box'>
-            <div class='debt-detail'>
-              <p class='amt'>$<%= total_amount_owed %></p>
-              <div class='debtor-info'>
-                <p class='debtor'>to: <%= creditor.creditor %></p>
-                <p>Due: <%= debt&.due_date %></p>
+  <section class='debt-section'>
+    <% if @creditors.where(user_id: current_user.id).any? %>
+      <article>
+        <% displayed_creditor_ids = [] %>
+        <% @creditors.where(user_id: current_user.id).each do |creditor| %>
+          <% unless displayed_creditor_ids.include?(creditor.id) %>
+            <% total_amount_owed = Debt.total_amount(creditor.id)%>
+            <% debt = creditor.debts.first %>
+            <div class='debt-box'>
+              <div class='debt-detail'>
+                <p class='amt'>$<%= total_amount_owed %></p>
+                <div class='debtor-info'>
+                  <p class='debtor'>to: <%= creditor.creditor %></p>
+                  <p>Due: <%= debt&.due_date %></p>
+                </div>
               </div>
-            </div>
-            <% if total_amount_owed == 0%>
-              <%= form_with(model: creditor, url: creditor_path(id: creditor.id),
-                method: :delete, data: { confirm: 'Are you sure you want to delete this debt?' }) do |form| %>
-                <%= form.button '', class: 'btn', type: 'submit' do %>
-                  <i class="fa-regular fa-trash-can"></i>
-                <%end%>
+              <% if total_amount_owed == 0%>
+                <%= form_with(model: creditor, url: creditor_path(id: creditor.id),
+                  method: :delete, data: { confirm: 'Are you sure you want to delete this debt?' }) do |form| %>
+                  <%= form.button '', class: 'btn', type: 'submit' do %>
+                    <i class="fa-regular fa-trash-can"></i>
+                  <%end%>
+                <% end %>
+              <%end%>
+              <%= link_to debts_path(id: creditor.id), class: 'edit-link' do %>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
               <% end %>
-            <%end%>
-            <%= link_to debts_path(id: creditor.id), class: 'edit-link' do %>
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            <% end %>
-          </div>
-          <% displayed_creditor_ids << creditor.id %>
+            </div>
+            <% displayed_creditor_ids << creditor.id %>
+          <% end %>
         <% end %>
-      <% end %>
-    </article>
-  <% else %>
-    <p class='no-debt'>You did not have any Creditor, use the button below to add new debts</p>
-  <% end %>
-</section>
+      </article>
+    <% else %>
+      <p class='no-debt'>You did not have any Creditor, use the button below to add new debts</p>
+    <% end %>
+  </section>
+</main>
 
 <footer class='footer'>
   <%=link_to new_creditor_path do %>
