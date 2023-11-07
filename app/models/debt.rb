@@ -1,13 +1,15 @@
 class Debt < ApplicationRecord
-  belongs_to :user
+  belongs_to :creditor
 
-  validates :debtor, presence: true, length: { minimum: 3, maximum: 100 }
   validates :due_date, presence: true
   validates :amount, presence: true, numericality: { greater_than: 0 }
 
-  def due_day(debt_date, due_date)
-    date_of_debt = debt_date.to_date
-    exp_day = (due_date - date_of_debt).to_i
-    exp_day < 1 ? "Your Debt is due" : "Due: in #{exp_day} Days"
+  # To get the sum of all amounts for a particular creditor
+  def self.total_amount(creditor_id)
+    where(creditor_id: creditor_id).sum(:amount)
+  end
+
+  def default_reason(reason)
+    (reason == nil) ? reason = 'Add a reason for your debt' : reason
   end
 end

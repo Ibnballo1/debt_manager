@@ -1,11 +1,15 @@
 <section class='top-nav'>
-  <%=link_to debts_path do %>
+  <%=link_to debts_path(id: @creditor.id) do %>
     <i class="fa-solid fa-arrow-left"></i>
   <% end %>
   <h3>New Debt</h3>
 </section>
 
-<%= bootstrap_form_with model: @debt, url: debts_path(), class: 'new_edit' do |form| %>
-  <%= render 'form', form: form %>
+<%= bootstrap_form_with model: @debt, url: debts_path, class: 'new_edit' do |form| %>
+  <!-- Debt fields -->
+  <%= form.text_field :amount %>
+  <%= form.date_field :due_date %>
+  <%= form.text_area :reason %>
+  <%= form.hidden_field :creditor_id, value: @creditor.id %>
   <%= form.submit 'Add Debt' %>
 <%end%>

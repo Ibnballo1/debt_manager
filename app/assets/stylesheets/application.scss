@@ -17,76 +17,97 @@
 @import 'rails_bootstrap_forms';
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
+  background-color: #f5f5f5;
 }
 
 header {
-  background-color: #259672;
-  height: 50vh;
+  background: linear-gradient(135deg, #259672, #1673a0);
   border-radius: 0 0 15% 15%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  height: 50vh;
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 0.5rem;
 
   h1 {
     color: #fff;
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   }
 }
 
+.content {
+  min-height: calc(92% - 2rem);
+  padding: 1rem;
+}
+
 .index-section {
-  height: 30vh;
-  display: grid;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 3rem 1rem 4rem 1rem;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 3rem 1rem;
+  text-align: center;
 
   .para {
-    color: #000;
-    font-weight: 500;
-    font-size: 1.5rem;
-    text-align: center;
+    color: #333;
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 1rem;
   }
 
   .index-section-para2 {
-    color: grey;
-    text-align: center;
+    color: #555;
+    font-size: 1.2rem;
   }
 }
 
 .top-nav {
-  background-color: #259672;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  padding: 0.5rem;
+  background: linear-gradient(135deg, #259672, #1673a0);
+  display: flex;
+  align-items: center;
+  padding: 1rem;
   margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   h3 {
     color: #fff;
-    font-size: 20px;
-  }
-
-  h3,
-  a {
-    display: flex;
-    align-items: center;
+    font-size: 1.5rem;
+    margin: 0 auto;
   }
 }
 
 .flashes {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin-bottom: 12px;
-  background-color: #000;
+}
+
+.alert.alert-danger {
+  background-color: #ff4d4d;
   color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.flash-msg {
+  background-color: #259672;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .info {
@@ -97,49 +118,46 @@ header {
 }
 
 .debt-section {
-  padding: 0 1rem;
-
-  h3 {
-    text-align: center;
-  }
+  padding: 1rem;
+  text-align: center;
 
   article {
-    padding: 0.25rem 0.25rem;
+    padding: 0.5rem;
+  }
 
-    .debt-box {
-      border-radius: 12px;
-      background-color: #542759;
-      color: #fff;
+  .debt-box {
+    border-radius: 12px;
+    background: linear-gradient(135deg, #542759, #452379);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .edit-link {
+      padding-right: 1rem;
+    }
+
+    .debt-detail {
+      width: 85%;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
+      padding: 0 1rem;
 
-      .edit-link {
-        padding-right: 1rem;
+      .amt {
+        margin: auto 0;
+        font-weight: bold;
+        font-size: 1.5rem;
       }
 
-      .debt-detail {
-        width: 85%;
-        display: flex;
-        justify-content: space-between;
-        padding: 0 1rem;
+      .debtor-info {
+        padding-top: 0.75rem;
 
-        .amt {
-          margin: auto 0;
-          font-weight: bold;
-          font-size: 1.5rem;
-        }
-
-        .debtor-info {
-          padding-top: 0.75rem;
-          line-height: 5px;
-
-          .debtor {
-            a {
-              font-weight: bold;
-              color: skyblue;
-            }
+        .debtor {
+          a {
+            font-weight: bold;
+            color: #50c9d2;
           }
         }
       }
@@ -151,19 +169,11 @@ header {
     grid-template-columns: repeat(3, 1fr);
     list-style-type: none;
     font-size: 1.275rem;
+    padding: 0;
 
     li {
-      border-bottom: 2px solid brown;
-    }
-
-    li,
-    a {
+      border-bottom: 2px solid #8e44ad;
       padding: 1rem 0;
-    }
-
-    form {
-      display: flex;
-      margin: 0 auto;
     }
 
     a {
@@ -175,6 +185,97 @@ header {
     font-size: 1.25rem;
     text-align: center;
     padding: 0.75rem;
+  }
+}
+
+.debt-show {
+  padding: 1rem;
+}
+
+.debt-show article {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: #fff;
+  color: #333;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.debt-show h5 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.debt-show p {
+  font-size: 1.25rem;
+  padding: 0.5rem;
+}
+
+.debt-show .edit-link,
+.debt-show form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.debt-show i {
+  font-size: 1.25rem;
+  cursor: pointer;
+  background-color: #fff;
+  color: #000;
+}
+
+.debt-show form button {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.debt-show ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  list-style-type: none;
+  font-size: 1.275rem;
+  padding: 0;
+}
+
+.debt-show li {
+  border-bottom: 2px solid #8e44ad;
+  padding: 1rem 0;
+}
+
+.debt-show a {
+  text-decoration: none;
+}
+
+/* Media Query for Mobile */
+@media screen and (max-width: 768px) {
+  .debt-show article {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .debt-show h5 {
+    font-size: 1.5rem;
+  }
+
+  .debt-show p {
+    font-size: 1.25rem;
+  }
+
+  .debt-show .edit-link,
+  .debt-show form {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .debt-show i {
+    font-size: 1.5rem;
   }
 }
 
@@ -192,24 +293,27 @@ header {
 
 .footer {
   width: 100%;
+  background-color: #259672;
+  color: #fff;
+  padding: 1rem 0;
   text-align: center;
-  position: absolute;
-  bottom: 0;
   font-weight: 500;
-  font-size: 1.25rem;
 
   p {
-    color: #000;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   button {
-    background-color: #259672;
+    background-color: #1673a0;
     color: #fff;
     border: none;
     width: 90%;
     padding: 12px;
     margin-bottom: 10px;
     border-radius: 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
   }
 }
 
@@ -223,7 +327,7 @@ header {
 
   article {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     text-align: center;
   }
 }
@@ -243,5 +347,15 @@ a {
 }
 
 .fa-regular {
+  background-color: #259672;
   color: #fff;
+}
+
+.manage-btn {
+  background-color: #1673a0;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  padding: 12px;
 }

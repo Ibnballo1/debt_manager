@@ -1,0 +1,11 @@
+<section class='top-nav'>
+  <%=link_to creditors_path do %>
+    <i class="fa-solid fa-arrow-left"></i>
+  <% end %>
+  <h3>Edit Creditor</h3>
+</section>
+
+<%= bootstrap_form_with model: @creditor, url: creditor_path(id: @creditor.id), class: 'new_edit' do |f| %>
+  <%= render 'form', f: f %>
+  <%= f.submit 'Edit Creditor' %>
+<%end%>

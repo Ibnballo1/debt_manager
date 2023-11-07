@@ -1,0 +1,9 @@
+<!-- Creditor fields -->
+<%= f.text_field :creditor, class: 'edit' %>
+
+<!-- Debt fields -->
+<%= f.fields_for :debts do |debt_fields| %>
+  <%= debt_fields.text_field :amount, class: 'edit' %>
+  <%= debt_fields.date_field :due_date, class: 'edit' %>
+  <%= debt_fields.text_area :reason, class: 'edit' %>
+<% end %>

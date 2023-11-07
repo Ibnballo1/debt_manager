@@ -1,0 +1,22 @@
+<section class='top-nav'>
+  <%=link_to creditors_path do %>
+    <i class="fa-solid fa-arrow-left"></i>
+  <% end %>
+  <h3>New Debt</h3>
+</section>
+
+<%= bootstrap_form_with model: @creditor, url: creditors_path(), class: 'new_edit' do |f| %>
+  <!-- Debt fields -->
+  <%= f.text_field :creditor %>
+
+  <!-- Debt fields -->
+  <%= f.fields_for :debts do |debt_fields| %>
+    <%= debt_fields.text_field :amount %>
+
+    <%= debt_fields.date_field :due_date %>
+
+    <%= debt_fields.text_area :reason %>
+  <% end %>
+
+  <%= f.submit 'Add Debt' %>
+<%end%>

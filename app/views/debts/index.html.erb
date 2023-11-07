@@ -1,51 +1,52 @@
-<section class='top-nav'>
-  <%=link_to root_path do %>
-    <i class="fa-solid fa-arrow-left"></i>
-  <% end %>
-  <h3>Your Debts</h3>
-</section>
+<main class='content'>
+  <section class='top-nav'>
+    <%=link_to creditors_path do %>
+      <i class="fa-solid fa-arrow-left"></i>
+    <% end %>
+    <h3><%=@creditor.creditor%> Debt</h3>
+  </section>
 
-<section class='flashes'>
-  <% if flash[:alert] %>
-    <div class="alert alert-danger">
-      <%= flash[:alert] %>
-    </div>
-  <% end %>
+  <section class='flashes'>
+    <% if flash[:alert] %>
+      <div class="alert alert-danger">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
 
-  <% if flash[:notice].present? %>
-    <div class='flash-msg'>
-      <%=flash[:notice]%>
-    </div>
-  <% end %>
-</section>
+    <% if flash[:notice].present? %>
+      <div class='flash-msg'>
+        <%=flash[:notice]%>
+      </div>
+    <% end %>
+  </section>
 
-<p class='info'>Click on the debtor's name for more info</p>
-
-<section class='debt-section'>
-  <%if @debts.where(user_id: current_user.id).any? %>
+  <section class='debt-show'>
     <article>
-      <% @debts.where(user_id: current_user.id).each do |debt| %>
-        <div class='debt-box'>
-          <div class='debt-detail'>
-            <p class='amt'>$<%= debt.amount %></p>
-            <div class='debtor-info'>
-              <p class='debtor'>to: <%=link_to debt.debtor, debt_path(id: debt.id) %></p>
-              <p>Due: <%= debt.due_date %></p>
-            </div>
-          </div>
-          <%=link_to edit_debt_path(id: debt.id), class: 'edit-link' do%>
-            <i class="fa-regular fa-pen-to-square"></i>
+      <% @creditor.debts.each do |debt| %>
+        <p><%=debt.amount%></p>
+        <p><%=debt.due_date%></p>
+        <p><%=debt.default_reason(debt.reason)%></p>
+        <%if debt.is_paid %>
+          <p>Paid</p>
+        <%else %>
+          <p>Unpaid</p>
+        <%end%>
+        <%=link_to edit_debt_path(debt), class: 'edit-link' do%>
+          <i class="fa-regular fa-pen-to-square"></i>
+        <%end%>
+        <%= form_with(model: debt, url: debt_path(id: debt.id),
+          method: :delete, data: { confirm: 'Are you sure you want to delete this debt?' }) do |form| %>
+          <%= form.button '', class: 'btn', type: 'submit' do %>
+            <i class="fa-regular fa-trash-can"></i>
           <%end%>
-        </div>
+        <% end %>
       <%end%>
     </article>
-  <%else%>
-    <p class='no-debt'>You did not have any debt, use the button below to add new debts</p>
-  <%end%>
-</section>
+  </section>
+</main>
 
 <footer class='footer'>
-  <%=link_to new_debt_path do %>
+  <%=link_to new_debt_path(id: @creditor.id) do %>
     <button>Add Debt</button>
   <%end%>
 </footer>

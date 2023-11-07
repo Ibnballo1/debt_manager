@@ -8,6 +8,7 @@ class Ability
     user ||= User.new # Guest user
 
     return unless user.present?
-    can :manage, Debt, user: user
+    can :manage, Creditor, user: user
+    can :manage, Debt, debt: { user_id: user.id }
   end
 end
