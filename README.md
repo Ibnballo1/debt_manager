@@ -129,6 +129,18 @@ To run tests, run the following command:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- FUTURE FEATURES -->
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- [Multiple_Currency] **[new_feature_1]**
+- [Search_and_Filter] **[new_feature_2]**
+- [Data_Export] **[new_feature_3]**
+- [Data_History] **[new_feature_4]**
+- [Feedback_and_Support] **[new_feature_5]**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
