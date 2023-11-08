@@ -1,10 +1,5 @@
 <a name="readme-top"></a>
 
-
-<div align="center">
-  <h3><b>Microverse README Template</b></h3>
-</div>
-
 <!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
@@ -66,6 +61,7 @@
 
 - **[Register]**
 - **[CRUD Operations]**
+- **[Multiple Debts]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -127,17 +123,13 @@ To run tests, run the following command:
   rspec spec
 ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+### Deployment
 
-<!-- FUTURE FEATURES -->
+To deploy the app, run the following command:
 
-## 🔭 Future Features <a name="future-features"></a>
-
-- [Multiple_Currency] **[new_feature_1]**
-- [Search_and_Filter] **[new_feature_2]**
-- [Data_Export] **[new_feature_3]**
-- [Data_History] **[new_feature_4]**
-- [Feedback_and_Support] **[new_feature_5]**
+```
+   fly deploy
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -150,6 +142,18 @@ To run tests, run the following command:
 - GitHub: [@githubhandle](https://github.com/ibnballo1)
 - Twitter: [@twitterhandle](https://twitter.com/webprotekh)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/abdullateef-bello)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- FUTURE FEATURES -->
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- [] **[Multiple Currency]**
+- [] **[Search and Filter]**
+- [] **[Data Export]**
+- [] **[Data History]**
+- [] **[Feedback and Support]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
