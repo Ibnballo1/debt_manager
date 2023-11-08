@@ -1,10 +1,5 @@
 <a name="readme-top"></a>
 
-
-<div align="center">
-  <h3><b>Microverse README Template</b></h3>
-</div>
-
 <!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
@@ -66,6 +61,7 @@
 
 - **[Register]**
 - **[CRUD Operations]**
+- **[Multiple Debts]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -127,6 +123,14 @@ To run tests, run the following command:
   rspec spec
 ```
 
+### Deployment
+
+To deploy the app, run the following command:
+
+```
+   fly deploy
+```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
@@ -138,6 +142,18 @@ To run tests, run the following command:
 - GitHub: [@githubhandle](https://github.com/ibnballo1)
 - Twitter: [@twitterhandle](https://twitter.com/webprotekh)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/abdullateef-bello)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- FUTURE FEATURES -->
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- [] **[Multiple Currency]**
+- [] **[Search and Filter]**
+- [] **[Data Export]**
+- [] **[Data History]**
+- [] **[Feedback and Support]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
