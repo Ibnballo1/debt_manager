@@ -23,7 +23,7 @@
   <section class='debt-show'>
     <article>
       <% @creditor.debts.each do |debt| %>
-        <p><%=debt.amount%></p>
+        <p><%= @creditor.currency %><%=debt.amount%></p>
         <p><%=debt.due_date%></p>
         <p><%=debt.default_reason(debt.reason)%></p>
         <%if debt.is_paid %>
