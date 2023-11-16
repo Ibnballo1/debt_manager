@@ -30,7 +30,7 @@
             <% debt = creditor.debts.first %>
             <div class='debt-box'>
               <div class='debt-detail'>
-                <p class='amt'>$<%= total_amount_owed %></p>
+                <p class='amt'><%= total_amount_owed %></p>
                 <div class='debtor-info'>
                   <p class='debtor'>to: <%= creditor.creditor %></p>
                   <p>Due: <%= debt&.due_date %></p>
