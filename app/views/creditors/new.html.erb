@@ -8,6 +8,7 @@
 <%= bootstrap_form_with model: @creditor, url: creditors_path(), class: 'new_edit' do |f| %>
   <!-- Debt fields -->
   <%= f.text_field :creditor %>
+  <%= f.text_field :currency %>
 
   <!-- Debt fields -->
   <%= f.fields_for :debts do |debt_fields| %>

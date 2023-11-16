@@ -55,6 +55,6 @@ class CreditorsController < ApplicationController
   end
 
   def creditor_params
-    params.require(:creditor).permit(:creditor, debts_attributes: [:amount, :due_date, :reason, :is_paid]).merge(user_id: current_user.id)
+    params.require(:creditor).permit(:creditor, :currency, debts_attributes: [:amount, :due_date, :reason, :is_paid]).merge(user_id: current_user.id)
   end
 end
