@@ -1,6 +1,6 @@
 class DebtsController < ApplicationController
   # load_and_authorize_resource
-  before_action :set_creditor, only: [:show]
+  before_action :set_creditor, only: [:show, :edit]
   before_action :set_debt, only: [:show, :edit, :update, :destroy]
 
   def index
