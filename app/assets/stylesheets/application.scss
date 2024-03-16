@@ -312,7 +312,25 @@ header {
       }
     }
   }
+
+  .top-nav {
+    margin-bottom: 0;
+  }
   
+  // Sign-in Form
+
+  .user-login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+  }
+
+  .new_user,
+  .shared-link {
+    width: 30%;
+  }
 
   // .debt-show article {
   //   grid-template-columns: 1fr;
@@ -345,11 +363,11 @@ header {
 
 .new_user {
   padding: 0 0.5rem;
-  border: 2px solid red;
 }
 
 .btn {
   background-color: #259672;
+  width: 100%;
 }
 
 .index-footer {
