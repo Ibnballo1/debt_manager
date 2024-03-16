@@ -22,6 +22,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-size: 16px;
 }
 
 body {
@@ -30,11 +31,11 @@ body {
 }
 
 header {
-  background: linear-gradient(135deg, #259672, #1673a0);
+  background: #259672;
   border-radius: 0 0 15% 15%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
-  height: 50vh;
+  height: clamp(300px, 50vh, 400px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45,6 +46,11 @@ header {
     font-size: 2.5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   }
+
+  .para {
+    color: #fff;
+    font-size: 1rem;
+  }
 }
 
 .content {
@@ -53,7 +59,7 @@ header {
 }
 
 .homepage {
-  min-height: calc(33.8% - 2rem);
+  // min-height: calc(33.8% - 2rem);
   padding: 1rem;
 }
 
@@ -64,16 +70,9 @@ header {
   padding: 2rem 1rem;
   text-align: center;
 
-  .para {
-    color: #333;
-    font-weight: 600;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
   .index-section-para2 {
     color: #555;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 
@@ -258,30 +257,86 @@ header {
 }
 
 /* Media Query for Mobile */
-@media screen and (max-width: 768px) {
-  .debt-show article {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
+@media only screen and (min-width: 1024px) {
+  .home-parent-div {
+    display: flex;
+    height: 100vh;
 
-  .debt-show h5 {
-    font-size: 1.5rem;
-  }
+    header {
+      background: #259672;
+      width: 40%;
+      border-radius: 0;
+      box-shadow: 6px 4px 6px rgba(0.5, 0.5, 0.5, 0.1);
+      height: inherit;
 
-  .debt-show p {
-    font-size: 1.25rem;
-  }
+      h1 {
+        font-size: 3rem;
+      }
+    
+      .para {
+        font-size: 1.325rem;
+      }
+    }
 
-  .debt-show .edit-link,
-  .debt-show form {
-    display: block;
-    text-align: center;
-    margin-top: 1rem;
-  }
+    .main-footer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 60%;
 
-  .debt-show i {
-    font-size: 1.5rem;
+      .index-footer {
+        position: static;
+      }
+    
+      .footer {
+        width: 60%;
+    
+        button {
+          background-color: #259672;
+          color: #fff;
+          border: none;
+          width: 80%;
+          padding: 12px;
+          margin-bottom: 10px;
+          border-radius: 20px;
+          font-size: 1.2rem;
+          cursor: pointer;
+        }
+
+        button:hover {
+          background-color: #7ce2c0;
+          transition: all 1s ease-in;
+          color: #064d36;
+        }
+      }
+    }
   }
+  
+
+  // .debt-show article {
+  //   grid-template-columns: 1fr;
+  //   text-align: center;
+  // }
+
+  // .debt-show h5 {
+  //   font-size: 1.5rem;
+  // }
+
+  // .debt-show p {
+  //   font-size: 1.25rem;
+  // }
+
+  // .debt-show .edit-link,
+  // .debt-show form {
+  //   display: block;
+  //   text-align: center;
+  //   margin-top: 1rem;
+  // }
+
+  // .debt-show i {
+  //   font-size: 1.5rem;
+  // }
 }
 
 /*
@@ -290,15 +345,21 @@ header {
 
 .new_user {
   padding: 0 0.5rem;
+  border: 2px solid red;
 }
 
 .btn {
   background-color: #259672;
 }
 
+.index-footer {
+  position: absolute;
+  bottom: 0;
+}
+
 .footer {
   width: 100%;
-  background-color: #259672;
+  // background-color: #259672;
   color: #fff;
   padding: 1rem 0;
   text-align: center;
@@ -310,13 +371,13 @@ header {
   }
 
   button {
-    background-color: #1673a0;
+    background-color: #259672;
     color: #fff;
     border: none;
-    width: 90%;
+    width: 80%;
     padding: 12px;
     margin-bottom: 10px;
-    border-radius: 30px;
+    border-radius: 20px;
     font-size: 1.2rem;
     cursor: pointer;
   }
@@ -349,6 +410,22 @@ h3 {
 a {
   text-decoration: none;
   color: #fff;
+}
+
+.no-account {
+  margin-left: 0.5rem;
+  font-size: 14px;
+}
+
+.shared-links {
+  display: inline-block;
+  margin: 0.75rem 0 0 0.5rem;
+  color: blue;
+  font-size: 14px;
+}
+
+.forget_pwd {
+  margin-top: 0;
 }
 
 .fa-regular {
