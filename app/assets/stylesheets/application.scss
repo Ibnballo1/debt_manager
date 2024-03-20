@@ -81,7 +81,6 @@ header {
   display: flex;
   align-items: center;
   padding: 1rem;
-  margin-bottom: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   h3 {
@@ -95,7 +94,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 12px;
+  padding-top: 12px;
 }
 
 .alert.alert-danger {
@@ -122,7 +121,7 @@ header {
 }
 
 .debt-section {
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   text-align: center;
 
   article {
@@ -365,6 +364,16 @@ header {
   padding: 0 0.5rem;
 }
 
+.pwd-field {
+  position: relative;
+}
+
+.pwd-min-char {
+  position: absolute;
+  font-size: 12px;
+  left: 80px;
+}
+
 .btn {
   background-color: #259672;
   width: 100%;
@@ -438,7 +447,7 @@ a {
 .shared-links {
   display: inline-block;
   margin: 0.75rem 0 0 0.5rem;
-  color: blue;
+  color: #259672;
   font-size: 14px;
 }
 
@@ -458,4 +467,15 @@ a {
   border-radius: 30px;
   font-size: 1.2rem;
   padding: 12px;
+}
+
+.page-denied {
+  color: red;
+  font-size: 2rem;
+  text-align: center;
+  padding-top: 2rem;
+
+  a {
+    color: #000;
+  }
 }
