@@ -125,6 +125,9 @@ header {
   text-align: center;
 
   article {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
     padding: 0.5rem;
   }
 
@@ -316,7 +319,7 @@ header {
     margin-bottom: 0;
   }
   
-  // Sign-in Form
+  // Sign-in Form and other forms
 
   .user-login-form {
     display: flex;
@@ -331,6 +334,17 @@ header {
     width: 30%;
   }
 
+  .new_edit {
+    width: 30%;
+    margin: 100px auto;
+  }
+
+  // Debt section for big screen
+  .debt-section {
+    article {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
   // .debt-show article {
   //   grid-template-columns: 1fr;
   //   text-align: center;
