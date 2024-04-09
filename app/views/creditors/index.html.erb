@@ -29,7 +29,7 @@
             <% unless displayed_creditor_ids.include?(creditor.id) %>
               <% total_amount_owed = Debt.total_amount(creditor.id)%>
               <% debt = creditor.debts.first %>
-              <div class='debt-box'>
+              <div class='debt-box' data-controller="debts">
                 <div class='debt-detail'>
                   <p class='amt'><%= link_to (creditor.currency == nil) ? '$' : creditor.currency, edit_creditor_path(creditor) %><%= total_amount_owed %></p>
                   <div class='debtor-info'>
@@ -39,7 +39,7 @@
                 </div>
                 <% if total_amount_owed == 0%>
                   <%= form_with(model: creditor, url: creditor_path(creditor),
-                    method: :delete, data: { confirm: 'Are you sure you want to delete this debt?' }) do |form| %>
+                    method: :delete, data: { action: "click->debts#delete" }) do |form| %>
                     <%= form.button '', class: 'btn', type: 'submit' do %>
                       <i class="fa-regular fa-trash-can"></i>
                     <%end%>
