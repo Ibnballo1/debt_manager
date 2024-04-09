@@ -21,8 +21,9 @@
   </section>
 
   <section class='debt-show'>
-    <article>
-      <% @creditor.debts.each do |debt| %>
+    <p>Here's your list of outstanding debts. Stay on top of your finances by managing them efficiently.</p>
+    <% @creditor.debts.each do |debt| %>
+      <article>
         <p><%= @creditor.currency %><%=debt.amount%></p>
         <p><%=debt.due_date%></p>
         <p><%=debt.default_reason(debt.reason)%></p>
@@ -40,8 +41,8 @@
             <i class="fa-regular fa-trash-can"></i>
           <%end%>
         <% end %>
-      <%end%>
-    </article>
+      </article>
+    <%end%>
   </section>
 </main>
 
