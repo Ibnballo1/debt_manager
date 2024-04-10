@@ -271,6 +271,114 @@ header {
   text-decoration: none;
 }
 
+/*
+  Sign in  and Sign up form
+*/
+
+.new_user {
+  padding: 0 0.5rem;
+}
+
+.pwd-field {
+  position: relative;
+}
+
+.pwd-min-char {
+  position: absolute;
+  font-size: 12px;
+  left: 80px;
+}
+
+.btn {
+  background-color: #259672;
+  width: 100%;
+}
+
+.index-footer {
+  position: absolute;
+  bottom: 0;
+}
+
+.footer {
+  width: 100%;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+  font-weight: 500;
+
+  p {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  button {
+    background-color: #259672;
+    color: #fff;
+    border: none;
+    width: 80%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+}
+
+.new_edit {
+  padding: 1rem;
+}
+
+
+h3 {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.no-account {
+  margin-left: 0.5rem;
+  font-size: 14px;
+}
+
+.shared-links {
+  display: inline-block;
+  margin: 0.75rem 0 0 0.5rem;
+  color: #259672;
+  font-size: 14px;
+}
+
+.forget_pwd {
+  margin-top: 0;
+}
+
+.fa-regular {
+  background-color: #259672;
+  color: #fff;
+}
+
+.manage-btn {
+  background-color: #1673a0;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  padding: 12px;
+}
+
+.page-denied {
+  color: red;
+  font-size: 2rem;
+  text-align: center;
+  padding-top: 2rem;
+
+  a {
+    color: #000;
+  }
+}
+
 /* Media Query for Mobile */
 @media only screen and (min-width: 1024px) {
   .home-parent-div {
@@ -352,142 +460,9 @@ header {
     margin: 100px auto;
   }
 
-  // Debt section for big screen
   .debt-section {
     article {
       grid-template-columns: repeat(3, 1fr);
     }
-  }
-  // .debt-show article {
-  //   grid-template-columns: 1fr;
-  //   text-align: center;
-  // }
-
-  // .debt-show h5 {
-  //   font-size: 1.5rem;
-  // }
-
-  // .debt-show p {
-  //   font-size: 1.25rem;
-  // }
-
-  // .debt-show .edit-link,
-  // .debt-show form {
-  //   display: block;
-  //   text-align: center;
-  //   margin-top: 1rem;
-  // }
-
-  // .debt-show i {
-  //   font-size: 1.5rem;
-  // }
-}
-
-/*
-  Sign in  and Sign up form
-*/
-
-.new_user {
-  padding: 0 0.5rem;
-}
-
-.pwd-field {
-  position: relative;
-}
-
-.pwd-min-char {
-  position: absolute;
-  font-size: 12px;
-  left: 80px;
-}
-
-.btn {
-  background-color: #259672;
-  width: 100%;
-}
-
-.index-footer {
-  position: absolute;
-  bottom: 0;
-}
-
-.footer {
-  width: 100%;
-  // background-color: #259672;
-  color: #fff;
-  padding: 1rem 0;
-  text-align: center;
-  font-weight: 500;
-
-  p {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
-  button {
-    background-color: #259672;
-    color: #fff;
-    border: none;
-    width: 80%;
-    padding: 12px;
-    margin-bottom: 10px;
-    border-radius: 20px;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
-}
-
-.new_edit {
-  padding: 1rem;
-}
-
-
-h3 {
-  text-align: center;
-}
-
-a {
-  text-decoration: none;
-  color: #fff;
-}
-
-.no-account {
-  margin-left: 0.5rem;
-  font-size: 14px;
-}
-
-.shared-links {
-  display: inline-block;
-  margin: 0.75rem 0 0 0.5rem;
-  color: #259672;
-  font-size: 14px;
-}
-
-.forget_pwd {
-  margin-top: 0;
-}
-
-.fa-regular {
-  background-color: #259672;
-  color: #fff;
-}
-
-.manage-btn {
-  background-color: #1673a0;
-  color: #fff;
-  border: none;
-  border-radius: 30px;
-  font-size: 1.2rem;
-  padding: 12px;
-}
-
-.page-denied {
-  color: red;
-  font-size: 2rem;
-  text-align: center;
-  padding-top: 2rem;
-
-  a {
-    color: #000;
   }
 }
