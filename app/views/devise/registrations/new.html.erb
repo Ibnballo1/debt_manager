@@ -2,24 +2,28 @@
   <%=link_to root_path do %>
     <i class="fa-solid fa-arrow-left"></i>
   <% end %>
-  <h3>Sign up</h3>
+  <h3>Registeration</h3>
 </section>
 
-<%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'new_sessions') do |form| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class='user-login-form'>
+  <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'new_sessions') do |form| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <%= form.text_field :name, autofocus: true, autocomplete: "name" %>
-  <%= form.email_field :email, autocomplete: "email" %>
+    <%= form.text_field :name, autofocus: true, autocomplete: "name" %>
+    <%= form.email_field :email, autocomplete: "email" %>
 
-  <div class="field">
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= form.password_field :password, autocomplete: "new-password" %>
+    <div class="field pwd-field">
+      <% if @minimum_password_length %>
+      <em class='pwd-min-char'>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+      <%= form.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= form.submit "Sign up" %>
+  <% end %>
+
+  <div class='shared-link'>
+    <%= render "devise/shared/links" %>
   </div>
-
-  <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
-  <%= form.submit "Sign up" %>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

@@ -24,8 +24,8 @@ default: &default
 development:
   <<: *default
   database: debt_manager_development
-  username: <%= ENV["DEBT_MANAGER_DATABASE_USERNAME"] %>
-  password: "<%= ENV["DEBT_MANAGER_DATABASE_PASSWORD"] %>"
+  username: <%= ENV["DB_USER"] %>
+  password: "<%= ENV["DB_PWD"] %>"
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -51,8 +51,8 @@ development:
 test:
   <<: *default
   database: debt_manager_test
-  username: <%= ENV["DEBT_MANAGER_DATABASE_USERNAME"] %>
-  password: "<%= ENV["DEBT_MANAGER_DATABASE_PASSWORD"] %>"
+  username: <%= ENV["DB_USER"] %>
+  password: "<%= ENV["DB_PWD"] %>"
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
