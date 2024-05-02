@@ -5,6 +5,14 @@
   <h3>New Debt</h3>
 </section>
 
+<section class="flashes">
+  <% if flash.now[:alert] %>
+    <div class="alert alert-danger">
+      <%= flash.now[:alert] %>
+    </div>
+  <% end %>
+</section>
+
 <%= bootstrap_form_with model: @creditor, url: creditors_path(), class: 'new_edit' do |f| %>
   <!-- Debt fields -->
   <%= f.text_field :creditor %>
