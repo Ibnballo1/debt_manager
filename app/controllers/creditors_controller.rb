@@ -24,7 +24,8 @@ class CreditorsController < ApplicationController
     if @creditor.save
       redirect_to creditors_path(), notice: "Creditor was successfully created."
     else
-      render :new
+      flash.now[:alert] = 'Creditor not created successfully'
+      render :new, status: :unprocessable_entity
     end
   end
 
